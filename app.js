@@ -61,7 +61,7 @@ app.get('/welcome', (req, res) => {
     res.send('You are logged in.<br>Access Token: ' +  req.session.token.token.access_token);
   } else {
     // No token, so redirect to login
-    res.redirect('/');
+    res.redirect('www.google.com');
   }
 });
 
