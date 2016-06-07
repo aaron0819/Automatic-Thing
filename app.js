@@ -4,8 +4,8 @@ const port = process.env.PORT || 3000;
 const app = express();
 
 // Add your automatic client id and client secret here or as environment variables
-const AUTOMATIC_CLIENT_ID = process.env.AUTOMATIC_CLIENT_ID || 'your-automatic-client-id';
-const AUTOMATIC_CLIENT_SECRET = process.env.AUTOMATIC_CLIENT_SECRET || 'your-automatic-client-secret';
+const AUTOMATIC_CLIENT_ID = process.env.AUTOMATIC_CLIENT_ID || '2ee3c7c2f4b652fc1ee1';
+const AUTOMATIC_CLIENT_SECRET = process.env.AUTOMATIC_CLIENT_SECRET || 'ba1590bcd38c31a310d79726e6be9a89d383aa69';
 
 const oauth2 = require('simple-oauth2')({
   clientID: AUTOMATIC_CLIENT_ID,
