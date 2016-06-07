@@ -54,7 +54,7 @@ app.get('/redirect', (req, res) => {
   }, saveToken);
 });
 
-app.get('http://www.google.com', (req, res) => {
+app.get('file:///C:/Users/Lynne/OneDrive/Documents/index.html', (req, res) => {
   if (req.session.token) {
     // Display token to authenticated user
     console.log('Automatic access token', req.session.token.token.access_token);
