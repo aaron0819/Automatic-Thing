@@ -1,0 +1,20 @@
+{
+  "name": "Automatic Oauth Example App",
+  "description": "Automatic OAuth Example App",
+  "keywords": [
+    "node.js",
+    "Automatic",
+    "Connected Car"
+  ],
+  "repository": "https://github.com/Automatic/automatic-oauth-example-nodejs",
+  "success_url": "/",
+  "env": {
+    "AUTOMATIC_CLIENT_ID": {
+      "description": "Your Automatic Client ID. Get one from developer.automatic.com"
+    },
+    "AUTOMATIC_CLIENT_SECRET": {
+      "description": "Your Automatic Client Secret. Get one from developer.automatic.com"
+    },
+    "NODE_ENV": "production"
+  }
+}

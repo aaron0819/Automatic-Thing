@@ -1,0 +1,29 @@
+{
+  "name": "automatic-oauth-example-nodejs",
+  "version": "0.2.0",
+  "description": "Automatic OAuth Example App",
+  "author": {
+    "name": "Brendan Nee",
+    "email": "brendan@automatic.com",
+    "url": "http://www.automatic.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/automatic/automatic-oauth-example-nodejs.git"
+  },
+  "bugs": {
+    "url": "http://github.com/automatic/automatic-oauth-example-nodejs/issues"
+  },
+  "license": "Apache-2.0",
+  "dependencies": {
+    "express": "4.13.4",
+    "express-session": "1.13.0",
+    "simple-oauth2": "0.7.0"
+  },
+  "engines": {
+    "node": "6.2.0"
+  },
+  "scripts": {
+    "start": "node app"
+  }
+}
