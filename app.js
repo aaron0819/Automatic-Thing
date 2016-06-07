@@ -16,7 +16,7 @@ const oauth2 = require('simple-oauth2')({
 
 // Authorization uri definition
 const authorizationUri = oauth2.authCode.authorizeURL({
-  scope: 'scope:user:profile scope:trip scope:location scope:vehicle:profile scope:vehicle:events scope:behavior'
+  scope: 'scope:user:profile'
 });
 
 // Enable sessions
@@ -54,14 +54,14 @@ app.get('/redirect', (req, res) => {
   }, saveToken);
 });
 
-app.get('/welcome', (req, res) => {
+app.get('http://www.google.com', (req, res) => {
   if (req.session.token) {
     // Display token to authenticated user
     console.log('Automatic access token', req.session.token.token.access_token);
     res.send('You are logged in.<br>Access Token: ' +  req.session.token.token.access_token);
   } else {
     // No token, so redirect to login
-    res.redirect('www.google.com');
+    res.redirect('/');
   }
 });
 
