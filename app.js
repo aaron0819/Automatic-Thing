@@ -46,7 +46,7 @@ app.get('/redirect', (req, res) => {
     // This is where you could save the `token` to a database for later use
     req.session.token = oauth2.accessToken.create(result);
 
-    res.redirect('/welcome');
+    res.redirect('/home.php');
   }
 
   oauth2.authCode.getToken({
