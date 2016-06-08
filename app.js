@@ -59,20 +59,20 @@ app.get('/redirect', (req, res) => {
 app.get('/welcome', (req, res) => {
   if (req.session.token) {
     // Display token to authenticated user
-    
+    var jsonResponse;
     function(req, res, next) {
       if(!req.body.tag) {
         return next(new Error('No tag provided'));
       }
       request.post({
         uri: nconf.get('API_URL') + '/device/',
-        headers: {Authorization: 'bearer ' + req.user.accessToken},
+        headers: {Authorization: 'bearer ' + req.user.token.access_token},
         form: {
           tag: req.body.tag
         }
       }, function(e, r, body) {
         if(e) return next(e);
-        res.send(body);
+        jsonResponse.id = body;
       });
     };
     
@@ -81,18 +81,18 @@ app.get('/welcome', (req, res) => {
         return next(new Error('No tag provided'));
       }
       request.post({
-        uri: nconf.get('API_URL') + '/user/' + req.params.id + '/tag/',
-        headers: {Authorization: 'bearer ' + req.user.accessToken},
+        uri: nconf.get('API_URL') + '/user/' + jsonResponse.results.id,
+        headers: {Authorization: 'bearer ' + req.user.token.access_token},
         form: {
           tag: req.body.tag
         }
       }, function(e, r, body) {
         if(e) return next(e);
-        res.send(body);
+        jsonResponse.user = body;
       });
     };
     console.log('Automatic access token', req.session.token.token.access_token);
-    res.send('You are logged in.<br>TESTyAccess Token: ' +  req.session.token.token.access_token);
+    res.send('You are logged in.<br>TESTyAccess Token: ' +  req.user.token.access_token + jsonResponse.user.first_name);
   } else {
     // No token, so redirect to login
     res.redirect('/');
