@@ -59,26 +59,9 @@ app.get('/redirect', (req, res) => {
 app.get('/welcome', (req, res) => {
   if (req.session.token) {
     // Display token to authenticated user
-    var jsonResponse;
-    function(req, res, next) {
-      if(!req.body.tag) {
-        return next(new Error('No tag provided'));
-      }
-      request.post({
-        uri: nconf.get('API_URL') + '/device/',
-        headers: {Authorization: 'bearer ' + req.user.token.access_token},
-        form: {
-          tag: req.body.tag
-        }
-      }, function(e, r, body) {
-        if(e) return next(e);
-        jsonResponse.id.json(body);
-      });
-    };
     
-
     console.log('Automatic access token', req.session.token.token.access_token);
-    res.send('You are logged in.<br>TESTyAccess Token: ' +  req.user.token.access_token + jsonResponse.id.results.id);
+    res.send('You are logged in.<br>TESTyAccess Token: ' +  req.user.token.access_token);
   } else {
     // No token, so redirect to login
     res.redirect('/');
