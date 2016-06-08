@@ -45,7 +45,9 @@ app.get('/redirect', (req, res) => {
     // Attach `token` to the user's session for later use
     // This is where you could save the `token` to a database for later use
     req.session.token = oauth2.accessToken.create(result);
-
+  
+    req.user = req.session.token;
+  
     res.redirect('/welcome');
   }
 
@@ -57,6 +59,38 @@ app.get('/redirect', (req, res) => {
 app.get('/welcome', (req, res) => {
   if (req.session.token) {
     // Display token to authenticated user
+    
+    function(req, res, next) {
+      if(!req.body.tag) {
+        return next(new Error('No tag provided'));
+      }
+      request.post({
+        uri: nconf.get('API_URL') + '/device/',
+        headers: {Authorization: 'bearer ' + req.user.accessToken},
+        form: {
+          tag: req.body.tag
+        }
+      }, function(e, r, body) {
+        if(e) return next(e);
+        res.send(body);
+      });
+    };
+    
+    function(req, res, next) {
+      if(!req.body.tag) {
+        return next(new Error('No tag provided'));
+      }
+      request.post({
+        uri: nconf.get('API_URL') + '/user/' + req.params.id + '/tag/',
+        headers: {Authorization: 'bearer ' + req.user.accessToken},
+        form: {
+          tag: req.body.tag
+        }
+      }, function(e, r, body) {
+        if(e) return next(e);
+        res.send(body);
+      });
+    };
     console.log('Automatic access token', req.session.token.token.access_token);
     res.send('You are logged in.<br>TESTyAccess Token: ' +  req.session.token.token.access_token);
   } else {
