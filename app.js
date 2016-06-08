@@ -72,7 +72,7 @@ app.get('/welcome', (req, res) => {
         }
       }, function(e, r, body) {
         if(e) return next(e);
-        jsonResponse.id = body;
+        jsonResponse.id = r.json(body);
       });
     };
     
@@ -88,7 +88,7 @@ app.get('/welcome', (req, res) => {
         }
       }, function(e, r, body) {
         if(e) return next(e);
-        jsonResponse.user = body;
+        jsonResponse.user = r.json(body);
       });
     };
     console.log('Automatic access token', req.session.token.token.access_token);
