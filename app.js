@@ -1,10 +1,3 @@
-var request = require('request'),
-    csv = require('express-csv'),
-    _ = require('underscore'),
-    async = require('async'),
-    nconf = require('nconf'),
-    helpers = require('../libs/helpers');
-
 const express = require('express');
 const session = require('express-session');
 const port = process.env.PORT || 3000;
@@ -79,27 +72,13 @@ app.get('/welcome', (req, res) => {
         }
       }, function(e, r, body) {
         if(e) return next(e);
-        jsonResponse.id = r.json(body);
+        jsonResponse.id.json(body);
       });
     };
     
-    function(req, res, next) {
-      if(!req.body.tag) {
-        return next(new Error('No tag provided'));
-      }
-      request.post({
-        uri: nconf.get('API_URL') + '/user/' + jsonResponse.results.id,
-        headers: {Authorization: 'bearer ' + req.user.token.access_token},
-        form: {
-          tag: req.body.tag
-        }
-      }, function(e, r, body) {
-        if(e) return next(e);
-        jsonResponse.user = r.json(body);
-      });
-    };
+
     console.log('Automatic access token', req.session.token.token.access_token);
-    res.send('You are logged in.<br>TESTyAccess Token: ' +  req.user.token.access_token + jsonResponse.user.first_name);
+    res.send('You are logged in.<br>TESTyAccess Token: ' +  req.user.token.access_token + jsonResponse.id.results.id);
   } else {
     // No token, so redirect to login
     res.redirect('/');
