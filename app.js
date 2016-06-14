@@ -58,9 +58,10 @@ app.get('/redirect', (req, res) => {
         console.log("this is the body" + body);
         holder.jsonHolder= body;
         holder.tester = " Testing to see if it hits this";
+        res.redirect('/welcome');
       });
-      console.log("after the call");
-    res.redirect('/welcome');
+    console.log("after the call");
+
   }
 
   oauth2.authCode.getToken({
