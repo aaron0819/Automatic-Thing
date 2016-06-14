@@ -1,3 +1,4 @@
+var request = require('request')
 const express = require('express');
 const session = require('express-session');
 const port = process.env.PORT || 3000;
@@ -45,7 +46,13 @@ app.get('/redirect', (req, res) => {
     // Attach `token` to the user's session for later use
     // This is where you could save the `token` to a database for later use
     req.session.token = oauth2.accessToken.create(result);
-
+    request.get({
+        uri: "https://api.automatic.com/device/",
+        headers: {Authorization: 'bearer ' + req.session.token.token.access_token},
+        json: true
+      }, function(e, r, body) {
+        req.jsonHolder= body;
+      });
     res.redirect('/welcome');
   }
 
@@ -58,7 +65,7 @@ app.get('/welcome', (req, res) => {
   if (req.session.token) {
     // Display token to authenticated user
     console.log('Automatic access token', req.session.token.token.access_token);
-    res.send('You are logged in.<br>Access Token: ' +  req.session.token.token.access_token);
+    res.send('You are logged in.<br>Access Token: ' +  req.session.token.token.access_token + " " + req.jsonHolder);
   } else {
     // No token, so redirect to login
     res.redirect('/');
