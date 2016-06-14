@@ -66,7 +66,7 @@ app.get('/welcome', (req, res) => {
   if (req.session.token) {
     // Display token to authenticated user
     console.log('Automatic access token', req.session.token.token.access_token);
-    res.send('You are logged in.<br>Access Token: ' +  req.session.token.token.access_token + " " + holder.jsonHolder +"<br>"+ holder.tester);
+    res.send(holder + 'You are logged in.<br>Access Token: ' +  req.session.token.token.access_token + " " + holder.jsonHolder +"<br>"+ holder.tester);
   } else {
     // No token, so redirect to login
     res.redirect('/');
