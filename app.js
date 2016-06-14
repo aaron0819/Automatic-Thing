@@ -55,7 +55,7 @@ app.get('/redirect', (req, res) => {
         if(e){
           holder = e;
         }
-        console.log("this is the body" + body);
+        console.log("this is the body" + body.results[0].id);
         holder.jsonHolder= body;
         holder.tester = " Testing to see if it hits this";
         res.redirect('/welcome');
