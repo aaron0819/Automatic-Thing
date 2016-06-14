@@ -51,6 +51,9 @@ app.get('/redirect', (req, res) => {
         headers: {Authorization: 'bearer ' + req.session.token.token.access_token},
         json: true
       }, function(e, r, body) {
+        if(e){
+          holder = e;
+        }
         holder.jsonHolder= body;
         holder.tester = " Testing to see if it hits this";
       });
