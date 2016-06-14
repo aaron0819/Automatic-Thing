@@ -49,11 +49,11 @@ app.get('/redirect', (req, res) => {
     console.log(" Before the call");
     app.get({
         uri: "https://api.automatic.com/device/",
-        headers: {Authorization: 'bearer ' + req.session.token.token.access_token},
+        headers: {Authorization: 'Bearer ' + req.session.token.token.access_token},
         json: true
       }, function(e, r, body) {
         if(e){
-         console.log(e);
+         console.log(e + " :/");
         } else{
         console.log("this is the body" + body.results[0].id);
         holder.jsonHolder= body;
