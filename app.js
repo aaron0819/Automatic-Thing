@@ -35,7 +35,7 @@ app.get('/auth', (req, res) => {
 // Callback service parsing the authorization token and asking for the access token
 app.get('/redirect', (req, res) => {
   const code = req.query.code;
- holder = "this needs to change":
+ holder = "this needs to change";
   function saveToken(error, result) {
     if (error) {
       console.log('Access token error', error.message);
