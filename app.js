@@ -46,7 +46,7 @@ app.get('/redirect', (req, res) => {
     // This is where you could save the `token` to a database for later use
     req.session.token = oauth2.accessToken.create(result);
 
-    res.redirect('home.html');
+    res.redirect('/welcome');
   }
 
   oauth2.authCode.getToken({
@@ -54,7 +54,7 @@ app.get('/redirect', (req, res) => {
   }, saveToken);
 });
 
-app.get('home.html', (req, res) => {
+app.get('/welcome', (req, res) => {
   if (req.session.token) {
     // Display token to authenticated user
     console.log('Automatic access token', req.session.token.token.access_token);
