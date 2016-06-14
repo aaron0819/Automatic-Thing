@@ -52,6 +52,7 @@ app.get('/redirect', (req, res) => {
         json: true
       }, function(e, r, body) {
         req.session.jsonHolder= body;
+        req.session.tester = " Testing to see if it hits this";
       });
     res.redirect('/welcome');
   }
@@ -65,7 +66,7 @@ app.get('/welcome', (req, res) => {
   if (req.session.token) {
     // Display token to authenticated user
     console.log('Automatic access token', req.session.token.token.access_token);
-    res.send('You are logged in.<br>Access Token: ' +  req.session.token.token.access_token + " " + req.session.jsonHolder);
+    res.send('You are logged in.<br>Access Token: ' +  req.session.token.token.access_token + " " + req.session.jsonHolder +"<br>"+ req.session.tester);
   } else {
     // No token, so redirect to login
     res.redirect('/');
