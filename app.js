@@ -4,6 +4,8 @@ const session = require('express-session');
 const port = process.env.PORT || 3000;
 const app = express();
 var holder;
+var temp1;
+var temp2;
 // Add your automatic client id and client secret here or as environment variables
 const AUTOMATIC_CLIENT_ID = process.env.AUTOMATIC_CLIENT_ID || '2ee3c7c2f4b652fc1ee1';
 const AUTOMATIC_CLIENT_SECRET = process.env.AUTOMATIC_CLIENT_SECRET || 'ba1590bcd38c31a310d79726e6be9a89d383aa69';
@@ -56,9 +58,9 @@ app.get('/redirect', (req, res) => {
         if(e){
          console.log(e + " :/");
         } else{
-        console.log("this is the body" + body.results[0].id);
-        holder.jsonHolder= body;
-        holder.tester = " Testing to see if it hits this";
+        console.log("this is the body" + body.results[0].id + " " +  body.results[0].url);
+        temp1= body.results[0].id;
+        temp2 = " Testing to see if it hits this";
         res.redirect('/welcome');
         }
       });
@@ -76,7 +78,7 @@ app.get('/welcome', (req, res) => {
   if (req.session.token) {
     // Display token to authenticated user
     console.log('Automatic access token', req.session.token.token.access_token);
-    res.send(holder + 'You are logged in.<br>Access Token: ' +  req.session.token.token.access_token + " " + holder.jsonHolder +"<br>"+ holder.tester);
+    res.send(holder + 'You are logged in.<br>Access Token: ' +  req.session.token.token.access_token + " " + temp1 +"<br>"+ temp2);
   } else {
     // No token, so redirect to login
     res.redirect('/');
