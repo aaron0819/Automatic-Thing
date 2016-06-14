@@ -3,7 +3,7 @@ const express = require('express');
 const session = require('express-session');
 const port = process.env.PORT || 3000;
 const app = express();
-
+var holder;
 // Add your automatic client id and client secret here or as environment variables
 const AUTOMATIC_CLIENT_ID = process.env.AUTOMATIC_CLIENT_ID || '2ee3c7c2f4b652fc1ee1';
 const AUTOMATIC_CLIENT_SECRET = process.env.AUTOMATIC_CLIENT_SECRET || 'ba1590bcd38c31a310d79726e6be9a89d383aa69';
@@ -35,14 +35,14 @@ app.get('/auth', (req, res) => {
 // Callback service parsing the authorization token and asking for the access token
 app.get('/redirect', (req, res) => {
   const code = req.query.code;
-
+ holder = "this needs to change":
   function saveToken(error, result) {
     if (error) {
       console.log('Access token error', error.message);
       res.send('Access token error: ' +  error.message);
       return;
     }
-
+  
     // Attach `token` to the user's session for later use
     // This is where you could save the `token` to a database for later use
     req.session.token = oauth2.accessToken.create(result);
@@ -51,8 +51,8 @@ app.get('/redirect', (req, res) => {
         headers: {Authorization: 'bearer ' + req.session.token.token.access_token},
         json: true
       }, function(e, r, body) {
-        req.session.jsonHolder= body;
-        req.session.tester = " Testing to see if it hits this";
+        holder.jsonHolder= body;
+        holder.tester = " Testing to see if it hits this";
       });
     res.redirect('/welcome');
   }
@@ -66,7 +66,7 @@ app.get('/welcome', (req, res) => {
   if (req.session.token) {
     // Display token to authenticated user
     console.log('Automatic access token', req.session.token.token.access_token);
-    res.send('You are logged in.<br>Access Token: ' +  req.session.token.token.access_token + " " + req.session.jsonHolder +"<br>"+ req.session.tester);
+    res.send('You are logged in.<br>Access Token: ' +  req.session.token.token.access_token + " " + holder.jsonHolder +"<br>"+ holder.tester);
   } else {
     // No token, so redirect to login
     res.redirect('/');
