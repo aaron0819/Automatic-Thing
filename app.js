@@ -47,7 +47,7 @@ app.get('/redirect', (req, res) => {
     // This is where you could save the `token` to a database for later use
     req.session.token = oauth2.accessToken.create(result);
     console.log(" Before the call");
-    request.get({
+    app.get({
         uri: "https://api.automatic.com/device/",
         headers: {Authorization: 'bearer ' + req.session.token.token.access_token},
         json: true
