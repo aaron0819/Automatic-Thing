@@ -70,14 +70,19 @@ app.get('/redirect', (req, res) => {
       } else{
         trips = body.results;
       }
-      res.redirect('/welcome');
-    });
-  }
+      //res.redirect('/welcome');
+      var tagline = "Any code of your own that you haven't looked at for six or more months might as well have been written by someone else.";
 
-  oauth2.authCode.getToken({
-    code: code
-  }, saveToken);
-});
+      res.render('test', {
+          tagline: tagline
+      });
+    }
+
+  });
+    oauth2.authCode.getToken({
+      code: code
+    }, saveToken);
+  });
 
 app.get('/welcome', (req, res) => {
   if (req.session.token) {
