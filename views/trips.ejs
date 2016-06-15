@@ -4,11 +4,11 @@
 <head>
 <script type="text/javascript" src="ejs_production.js"></script>
 <link rel="stylesheet"
-  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 <script
   src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script
-  src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -17,33 +17,30 @@
 <body>
 
   <div class="container">
-  <h1><%= trips[0].started_at %></h1>
-  
+
   <h1 style='text-align:center'>RECENT TRIPS</h1>
    <table class="table table-bordered">
     <thead>
       <tr>
-        <th>Date</th>
         <th>Start</th>
         <th>End</th>
         <th>Duration</th>
         <th>Start Address</th>
         <th>End Address</th>
         <th>Distance</th>
-        <th>MPG</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>1/1/2016</td>
-        <td>1:15</td>
-        <td>2:15</td>
-        <td>.5</td>
-        <td>100 Main St</td>
-        <td>200 Main St</td>
-        <td>500 Miles</td>
-        <td>MPG</td>
-      </tr>
+      <% trips.forEach(function(trip) {%>
+        <tr>
+          <td><%= trip.started_at %></td>
+          <td><%= trip.ended_at %></td>
+          <td><%= trip.duration_s %></td>
+          <td><%= trip.start_address.name %></td>
+          <td><%= trip.end_address.name %></td>
+          <td><%= trip.distance_m %></td>
+        </tr>
+      <% }); %>
     </tbody>
   </table>
   </div>
