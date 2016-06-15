@@ -20,19 +20,6 @@ const authorizationUri = oauth2.authCode.authorizeURL({
   scope: 'scope:user:profile scope:trip scope:location scope:vehicle:profile scope:vehicle:events scope:behavior'
 });
 
-tripGetter() {
-request.get({
-  uri: "https://api.automatic.com/trip/",
-  headers: {Authorization: 'Bearer ' + req.session.token.token.access_token},
-  json: true
-}, function(e, r, body) {
-  if(e){
-  } else{
-    trips = body.results;
-  }
-  res.redirect('/welcome');
-  });}
-
 // Enable sessions
 app.use(session({
   secret: 'keyboard cat',
@@ -60,7 +47,17 @@ app.get('/redirect', (req, res) => {
     // This is where you could save the `token` to a database for later use
     req.session.token = oauth2.accessToken.create(result);
     console.log("here");
-    tripGetter();
+    request.get({
+      uri: "https://api.automatic.com/trip/",
+      headers: {Authorization: 'Bearer ' + req.session.token.token.access_token},
+      json: true
+    }, function(e, r, body) {
+      if(e){
+      } else{
+        trips = body.results;
+      }
+      res.redirect('/welcome');
+    });
   }
 
   oauth2.authCode.getToken({
