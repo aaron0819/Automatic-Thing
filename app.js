@@ -25,7 +25,7 @@ var trips;
 function printTrips() {
   var tripIds = "";
 
-  for (var i trips.length - 1; i >= 0; i--) {
+  for (var i = trips.length - 1; i >= 0; i--) {
     tripIds += trips[i];
   }
 
