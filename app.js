@@ -93,7 +93,7 @@ app.get('/welcome', (req, res) => {
 
 app.get('/trips', function(req, res) {
     console.log("/trips");
-    res.render('views/trips', {
+    res.render('./views/trips', {
         trips: trips
     });
   });
