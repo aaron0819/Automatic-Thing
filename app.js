@@ -24,7 +24,7 @@ var api = require('./api');
 var trips;
 
 function printTrips() {
-  var tripIds = "";
+  var tripIds = getTrips();
 
   for (var i = trips.length - 1; i >= 0; i--) {
     tripIds += trips[i].id;
@@ -33,6 +33,20 @@ function printTrips() {
   return tripIds;
 }
 
+function getTrips() {
+    request.get({
+      uri: "https://api.automatic.com/trip/",
+      headers: {Authorization: 'Bearer ' + req.session.token.token.access_token},
+      json: true
+    }, function(e, r, body) {
+      if(e){
+      } else{
+        trips = body.results;
+      }
+
+      return trips;
+    });
+  }
 
 // Enable sessions
 app.use(session({
@@ -61,17 +75,7 @@ app.get('/redirect', (req, res) => {
     // This is where you could save the `token` to a database for later use
     req.session.token = oauth2.accessToken.create(result);
     console.log("here");
-    request.get({
-      uri: "https://api.automatic.com/trip/",
-      headers: {Authorization: 'Bearer ' + req.session.token.token.access_token},
-      json: true
-    }, function(e, r, body) {
-      if(e){
-      } else{
-        trips = body.results;
-      }
-      res.redirect('/welcome');
-    });
+
   }
 
   oauth2.authCode.getToken({
