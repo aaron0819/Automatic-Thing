@@ -1,3 +1,5 @@
+var api = require('./api');
+
 const request = require('request');
 const express = require('express');
 const session = require('express-session');
@@ -20,7 +22,7 @@ const authorizationUri = oauth2.authCode.authorizeURL({
   scope: 'scope:user:profile scope:trip scope:location scope:vehicle:profile scope:vehicle:events scope:behavior'
 });
 
-var api = require('./api');
+
 var trips;
 
 function printTrips() {
