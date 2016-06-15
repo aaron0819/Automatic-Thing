@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<script type="text/javascript" src="ejs_production.js"></script>
+<link rel="stylesheet"
+  href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<script
+  src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script
+  src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>TRIPS</title>
+</head>
+<body>
+
+  <div class="container">
+  <h1><%= trips[0].started_at %></h1>
+  
+  <h1 style='text-align:center'>RECENT TRIPS</h1>
+   <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Start</th>
+        <th>End</th>
+        <th>Duration</th>
+        <th>Start Address</th>
+        <th>End Address</th>
+        <th>Distance</th>
+        <th>MPG</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1/1/2016</td>
+        <td>1:15</td>
+        <td>2:15</td>
+        <td>.5</td>
+        <td>100 Main St</td>
+        <td>200 Main St</td>
+        <td>500 Miles</td>
+        <td>MPG</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</body>
+</html>
