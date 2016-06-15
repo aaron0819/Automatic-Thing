@@ -1,3 +1,4 @@
+const request = require('request');
 const express = require('express');
 const session = require('express-session');
 const port = process.env.PORT || 3000;
@@ -17,6 +18,19 @@ const oauth2 = require('simple-oauth2')({
 // Authorization uri definition
 const authorizationUri = oauth2.authCode.authorizeURL({
   scope: 'scope:user:profile scope:trip scope:location scope:vehicle:profile scope:vehicle:events scope:behavior'
+});
+
+var tripGetter = 
+request.get({
+  uri: "https://api.automatic.com/trip/",
+  headers: {Authorization: 'Bearer ' + req.session.token.token.access_token},
+  json: true
+}, function(e, r, body) {
+  if(e){
+  } else{
+    trips = body.results;
+  }
+  res.redirect('/welcome');
 });
 
 // Enable sessions
