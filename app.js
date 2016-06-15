@@ -20,6 +20,7 @@ const authorizationUri = oauth2.authCode.authorizeURL({
   scope: 'scope:user:profile scope:trip scope:location scope:vehicle:profile scope:vehicle:events scope:behavior'
 });
 
+var api = require('./api');
 var trips;
 
 function printTrips() {
@@ -60,15 +61,7 @@ app.get('/redirect', (req, res) => {
     // This is where you could save the `token` to a database for later use
     req.session.token = oauth2.accessToken.create(result);
     console.log("here");
-    request.get({
-      uri: "https://api.automatic.com/trip/",
-      headers: {Authorization: 'Bearer ' + req.session.token.token.access_token},
-      json: true
-    }, function(e, r, body) {
-      if(e){
-      } else{
-        trips = body.results;
-      }
+    api.trips
       res.redirect('/welcome');
     });
   }
