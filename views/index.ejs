@@ -3,11 +3,11 @@
 <html>
 <head>
 <link rel="stylesheet"
-	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script
-	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -41,24 +41,24 @@
     <span class="input-group-addon">
         <i class="glyphicon glyphicon-calendar"></i>
     </span>
-     <input type="text" class="form-control" name="lName" id="inputLastName" placeholder="Date of Loss">
+     <input type="text" class="form-control" name="lName" id="inputLastName" placeholder="Date of Loss" value="<%= trip.vehicle_events %>">
 
 </div>
    <div class="input-group"  style="padding-bottom:20px">
     <span class="input-group-addon">
         <i class="glyphicon glyphicon-time"></i>
     </span>
-    <input type="text" name="email" id="inputEmail"  class="form-control" placeholder="Time Of Loss"/>
+    <input type="text" name="email" id="inputEmail"  class="form-control" placeholder="Time Of Loss" value="<%= trip.vehicle_events %>"/>
 
 </div>
 
-<div class="row">Location Details</div>
+<div class="row">Loss Location Details</div>
 <br/>
  <div class="input-group" style="padding-bottom:20px">
     <span class="input-group-addon">
         <i class="glyphicon glyphicon-globe"></i>
     </span>
-     <input type="text" class="form-control" name="fName" id="inputFirstName" placeholder="Address Description">
+     <input type="text" class="form-control" placeholder="Address Description" value="<%=trip.street_name %>">
 
 </div>
 
@@ -66,7 +66,7 @@
     <span class="input-group-addon">
         <i class="glyphicon glyphicon-globe"></i>
     </span>
-     <input type="text" class="form-control" name="fName" id="inputFirstName" placeholder="City">
+     <input type="text" class="form-control" placeholder="City" value="<%=trip.city %>">
 
 </div>
 
@@ -74,7 +74,7 @@
     <span class="input-group-addon">
         <i class="glyphicon glyphicon-globe"></i>
     </span>
-     <input type="text" class="form-control" name="fName" id="inputFirstName" placeholder="State">
+     <input type="text" class="form-control" placeholder="State" value="<%=trip.state %>">
 
 </div>
 
@@ -82,13 +82,13 @@
     <span class="input-group-addon">
         <i class="glyphicon glyphicon-globe"></i>
     </span>
-     <input type="text" class="form-control" name="fName" id="inputFirstName" placeholder="Country">
+     <input type="text" class="form-control" placeholder="Country" value="<%=trip.country %>">
 
 </div>
  
   <div class="form-group">
     <div class="col-sm-3">
-      <button style="width:100%;" type="submit" class="btn btn-info">Next</button>
+      <button style="width:100%;" class="btn btn-info">Next</button>
       
     </div>
   </div>
