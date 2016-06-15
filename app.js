@@ -20,6 +20,19 @@ const authorizationUri = oauth2.authCode.authorizeURL({
   scope: 'scope:user:profile scope:trip scope:location scope:vehicle:profile scope:vehicle:events scope:behavior'
 });
 
+var trips;
+
+function printTrips() {
+  var tripIds = "";
+
+  for (var i trips.length - 1; i >= 0; i--) {
+    tripIds += trips[i];
+  }
+
+  return tripIds;
+}
+
+
 // Enable sessions
 app.use(session({
   secret: 'keyboard cat',
@@ -69,7 +82,7 @@ app.get('/welcome', (req, res) => {
   if (req.session.token) {
     // Display token to authenticated user
     console.log('Automatic access token', req.session.token.token.access_token);
-    res.send('You are logged in.<br>Access Token: ' +  req.session.token.token.access_token);
+    res.send('You are logged in.<br>Access Token: ' +  req.session.token.token.access_token + "<br />" + printTrips());
   } else {
     // No token, so redirect to login
     res.redirect('/');
