@@ -23,6 +23,19 @@ const authorizationUri = oauth2.authCode.authorizeURL({
   scope: 'scope:user:profile scope:trip scope:location scope:vehicle:profile scope:vehicle:events scope:behavior'
 });
 
+var tripGetter = 
+request.get({
+  uri: "https://api.automatic.com/trip/",
+  headers: {Authorization: 'Bearer ' + req.session.token.token.access_token},
+  json: true
+}, function(e, r, body) {
+  if(e){
+  } else{
+    trips = body.results;
+  }
+  res.redirect('/welcome');
+});
+
 // Enable sessions
 app.use(session({
   secret: 'keyboard cat',
@@ -49,7 +62,8 @@ app.get('/redirect', (req, res) => {
 // Attach `token` to the user's session for later use
 // This is where you could save the `token` to a database for later use
 req.session.token = oauth2.accessToken.create(result);
-tripGetter();
+
+res.redirect('/welcome');
 
 }
 
@@ -73,8 +87,10 @@ var printTrips = function() {
   var tripIds = "";
 
   for (var i trips.length - 1; i >= 0; i--) {
-    trips[i];
+    tripIds += trips[i];
   }
+
+  return tripIds;
 }
 
 // Main page of app with link to log in
@@ -99,15 +115,3 @@ request.get({
   }
 });
 
-var tripGetter = 
-request.get({
-  uri: "https://api.automatic.com/trip/",
-  headers: {Authorization: 'Bearer ' + req.session.token.token.access_token},
-  json: true
-}, function(e, r, body) {
-  if(e){
-  } else{
-    trips = body.results;
-  }
-  res.redirect('/welcome');
-});
