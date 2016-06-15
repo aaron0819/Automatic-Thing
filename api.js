@@ -1,4 +1,8 @@
-trips = function(req, res, next) { request.get({
+var request = require('request'); 
+var express = require('express');
+var router = express.Router();
+
+router.trips = function(req, res, next) { request.get({
       uri: "https://api.automatic.com/trip/",
       headers: {Authorization: 'Bearer ' + req.session.token.token.access_token},
       json: true
@@ -12,7 +16,7 @@ trips = function(req, res, next) { request.get({
     });
   }
 
-users = function(req, res, next) { request.get({
+router.users = function(req, res, next) { request.get({
       uri: "https://api.automatic.com/user/me/",
       headers: {Authorization: 'Bearer ' + req.session.token.token.access_token},
       json: true
@@ -25,7 +29,7 @@ users = function(req, res, next) { request.get({
       
     });
   }
-vehicles = function(req, res, next) { request.get({
+router.vehicles = function(req, res, next) { request.get({
       uri: "https://api.automatic.com/vehicle/1/",
       headers: {Authorization: 'Bearer ' + req.session.token.token.access_token},
       json: true
@@ -38,3 +42,5 @@ vehicles = function(req, res, next) { request.get({
       
     });
   }
+
+module.exports = router;
