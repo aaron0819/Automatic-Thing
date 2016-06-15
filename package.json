@@ -18,7 +18,8 @@
   "dependencies": {
     "express": "4.13.4",
     "express-session": "1.13.0",
-    "simple-oauth2": "0.7.0"
+    "simple-oauth2": "0.7.0",
+	"ejs": "^1.0.0"	
   },
   "engines": {
     "node": "6.2.0"

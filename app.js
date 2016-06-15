@@ -3,6 +3,7 @@ const express = require('express');
 const session = require('express-session');
 const port = process.env.PORT || 3000;
 const app = express();
+app.set('view engine', 'ejs');
 
 // Add your automatic client id and client secret here or as environment variables
 const AUTOMATIC_CLIENT_ID = process.env.AUTOMATIC_CLIENT_ID || '2ee3c7c2f4b652fc1ee1'; 
@@ -33,18 +34,6 @@ function printTrips() {
   return tripIds;
 }
 
-function getTrips(sessionToken) { request.get({
-    uri: "https://api.automatic.com/trip/",
-    headers: {Authorization: 'Bearer ' + sessionToken.token.access_token},
-    json: true
-  }, function(e, r, body) {
-    if(e){
-    } else{
-      trips = body.results;
-    }
-    res.redirect('/welcome');
-  });
-}
 
 // Enable sessions
 app.use(session({
@@ -72,14 +61,23 @@ app.get('/redirect', (req, res) => {
     // Attach `token` to the user's session for later use
     // This is where you could save the `token` to a database for later use
     req.session.token = oauth2.accessToken.create(result);
-    console.log("here");
+    
+    request.get({
+      uri: "https://api.automatic.com/trip/",
+      headers: {Authorization: 'Bearer ' + req.session.token.token.access_token},
+      json: true
+    }, function(e, r, body) {
+      if(e){
+      } else{
+        trips = body.results;
+      }
+      res.redirect('/trips');
+    });
+  }
 
-    getTrips(req.session.token);
-}
-
-oauth2.authCode.getToken({
-  code: code
-}, saveToken);
+  oauth2.authCode.getToken({
+    code: code
+  }, saveToken);
 });
 
 app.get('/welcome', (req, res) => {
@@ -92,6 +90,13 @@ app.get('/welcome', (req, res) => {
     res.redirect('/');
   }
 });
+
+app.get('/trips', function(req, res) {
+    console.log("/trips");
+    res.render('views/trips', {
+        trips: trips
+    });
+  });
 
 // Main page of app with link to log in
 app.get('/', (req, res) => {
