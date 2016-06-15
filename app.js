@@ -92,15 +92,58 @@ app.get('/welcome', (req, res) => {
 });
 
 app.get('/trips', function(req, res) {
-    console.log("/trips");
-    res.render('trips', {
-        trips: trips
-    });
+  console.log("/trips");
+  res.render('trips', {
+    trips: trips
   });
+});
 
 // Main page of app with link to log in
 app.get('/', (req, res) => {
   res.send('<a href="/auth">Log in with Automatic</a>');
+});
+
+app.get('/claim', (req, res) => {
+  request.get({
+    uri: "https://api.automatic.com/vehicle/",
+    headers: {Authorization: 'Bearer ' + req.session.token.token.access_token},
+    json: true
+  }, function(e, r, body) {
+    if(e){
+    } else{
+
+      vehicles = body.results[0];
+
+      request.get({
+        uri: "https://api.automatic.com/user/me",
+        headers: {Authorization: 'Bearer ' + req.session.token.token.access_token},
+        json: true
+      }, function(e, r, body) {
+        if(e){
+        } else{
+          user = body;
+
+            for(int i = 0; i < vehicles.length; i++) {
+              if(i % 2 == 0) {
+                vehicles[i].igitionOn = 0;
+              } else {
+                vehicles[i].ignitionOff = 1;
+              }
+
+              if(Math.floor( Math.random() * 20 ) > 15) {
+                vehicles[i].engineTemp = Math.floor(Math.random() * 17) + 500;
+              }
+            }
+
+          res.render('trips', {
+
+            vehicles: vehicles,
+            user: user
+          });
+        }
+      });
+    }
+  });
 });
 
 // Start server
