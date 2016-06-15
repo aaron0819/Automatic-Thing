@@ -1,7 +1,3 @@
-var request = require('request');
-var id;
-var trips;
-
 const express = require('express');
 const session = require('express-session');
 const port = process.env.PORT || 3000;
@@ -22,7 +18,6 @@ const oauth2 = require('simple-oauth2')({
 const authorizationUri = oauth2.authCode.authorizeURL({
   scope: 'scope:user:profile scope:trip scope:location scope:vehicle:profile scope:vehicle:events scope:behavior'
 });
-
 
 // Enable sessions
 app.use(session({
@@ -47,39 +42,28 @@ app.get('/redirect', (req, res) => {
       return;
     }
 
-// Attach `token` to the user's session for later use
-// This is where you could save the `token` to a database for later use
-req.session.token = oauth2.accessToken.create(result);
+    // Attach `token` to the user's session for later use
+    // This is where you could save the `token` to a database for later use
+    req.session.token = oauth2.accessToken.create(result);
 
-res.redirect('/welcome');
+    res.redirect('/welcome');
+  }
 
-}
-
-oauth2.authCode.getToken({
-  code: code
-}, saveToken);
+  oauth2.authCode.getToken({
+    code: code
+  }, saveToken);
 });
 
 app.get('/welcome', (req, res) => {
   if (req.session.token) {
-// Display token to authenticated user
-console.log('Automatic access token', req.session.token.token.access_token);
-res.send('You are logged in.<br>Access Token: ' +  req.session.token.token.access_token + printTrips());
-} else {
-// No token, so redirect to login
-res.redirect('/');
-}
-});
-
-var printTrips = function() {
-  var tripIds = "";
-
-  for (var i trips.length - 1; i >= 0; i--) {
-    tripIds += trips[i];
+    // Display token to authenticated user
+    console.log('Automatic access token', req.session.token.token.access_token);
+    res.send('You are logged in.<br>Access Token: ' +  req.session.token.token.access_token);
+  } else {
+    // No token, so redirect to login
+    res.redirect('/');
   }
-
-  return tripIds;
-}
+});
 
 // Main page of app with link to log in
 app.get('/', (req, res) => {
@@ -90,5 +74,3 @@ app.get('/', (req, res) => {
 app.listen(port);
 
 console.log('Express server started on port ' + port);
-
-
