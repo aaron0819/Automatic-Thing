@@ -20,7 +20,7 @@ const authorizationUri = oauth2.authCode.authorizeURL({
   scope: 'scope:user:profile scope:trip scope:location scope:vehicle:profile scope:vehicle:events scope:behavior'
 });
 
-var tripGetter = 
+var tripGetter = function() {
 request.get({
   uri: "https://api.automatic.com/trip/",
   headers: {Authorization: 'Bearer ' + req.session.token.token.access_token},
@@ -31,7 +31,7 @@ request.get({
     trips = body.results;
   }
   res.redirect('/welcome');
-});
+  });}
 
 // Enable sessions
 app.use(session({
