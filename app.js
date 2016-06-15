@@ -1,4 +1,4 @@
-var request = requiree('request');
+var request = require('request');
 var id;
 var trips;
 
