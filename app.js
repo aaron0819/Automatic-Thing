@@ -22,11 +22,13 @@ const authorizationUri = oauth2.authCode.authorizeURL({
 
 var trips;
 
+
+
 function printTrips() {
   var tripIds = "";
 
   for (var i = trips.length - 1; i >= 0; i--) {
-    tripIds += trips[i].id + "<br />";
+    tripIds += trips[i].id;
   }
 
   return tripIds;
@@ -82,7 +84,21 @@ app.get('/welcome', (req, res) => {
   if (req.session.token) {
     // Display token to authenticated user
     console.log('Automatic access token', req.session.token.token.access_token);
-    res.send('You are logged in.<br>Access Token: ' +  req.session.token.token.access_token + "<br />" + printTrips());
+    //res.send('You are logged in.<br>Access Token: ' +  req.session.token.token.access_token + "<br />" + printTrips());
+
+    var options = {
+    uri: 'https://www.googleapis.com/urlshortener/v1/url',
+    method: 'POST',
+    json: {
+      "longUrl": printTrips();
+    }
+  };
+
+  request(options, function (error, response, body) {
+    if (!error && response.statusCode == 200) {
+      console.log(body.id) // Print the shortened url.
+    }
+  });
   } else {
     // No token, so redirect to login
     res.redirect('/');
