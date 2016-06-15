@@ -3,12 +3,17 @@
 <html>
 <head>
 <script type="text/javascript" src="ejs_production.js"></script>
+<script>
+    function runScenarios() {
+      window.alert(trips[0].started_at);
+    }
+</script>
 <link rel="stylesheet"
-  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 <script
   src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script
-  src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -43,6 +48,31 @@
       <% }); %>
     </tbody>
   </table>
+  <form>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Scenario # </th>
+          <th>Enabled?</th>
+          <th>Hard Break</th>
+          <th>Spead Over 70</th>
+          <th>Ignition Off</th>
+          <th>Engine Temperature</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr>
+            <td>Scenario 1</td>
+            <td><input type="checkbox" name="scenarioEnabled" value="scenario1" checked></td>
+            <td>greater than 1</td>
+            <td></td>
+            <td>ignition is turned off</td>
+            <td></td>
+          </tr>
+      </tbody>
+    </table>
+    <button onclick="runScenarios()">Run Scenarios</button>
+  </form>
   </div>
 </body>
 </html>
