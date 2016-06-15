@@ -23,18 +23,6 @@ const authorizationUri = oauth2.authCode.authorizeURL({
   scope: 'scope:user:profile scope:trip scope:location scope:vehicle:profile scope:vehicle:events scope:behavior'
 });
 
-var tripGetter = 
-request.get({
-  uri: "https://api.automatic.com/trip/",
-  headers: {Authorization: 'Bearer ' + req.session.token.token.access_token},
-  json: true
-}, function(e, r, body) {
-  if(e){
-  } else{
-    trips = body.results;
-  }
-  res.redirect('/welcome');
-});
 
 // Enable sessions
 app.use(session({
@@ -103,15 +91,4 @@ app.listen(port);
 
 console.log('Express server started on port ' + port);
 
-var idGetter = 
-request.get({
-  uri: "https://api.automatic.com/device/",
-  headers: {Authorization: 'Bearer ' + req.session.token.token.access_token},
-  json: true
-}, function(e, r, body) {
-  if(e){
-  } else{
-    id = body.results[0].id;
-  }
-});
 
