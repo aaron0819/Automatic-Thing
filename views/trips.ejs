@@ -13,7 +13,8 @@
 				if (row.cells[6].innerHTML > 0 && row.cells[7].innerHTML > 0) {
 					document.getElementById("submitClaim").style = "visibility:visible";
 					document.getElementById("runScenarios").style = "visibility:hidden";
-					row.style = "background:red";
+					row.style = "border: 1px";
+                			 row.style = "color: red";
 					matched = true;
 					break;
 				}
