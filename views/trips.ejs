@@ -6,15 +6,18 @@
   src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script type="text/javascript">
 
-  function runScenarios(trips) {
-       trips.forEach(function(trip) {
-          if (trip.hard_brakes > 0 && trip.ignitionOff > 0) {
-              alert(trip.id);
-            var matchedTrip = 
-              $("." + trip.id).css("background-color:red");
+  function runScenarios() {
+      var table = document.getElementById("tripTable");
+      for (var i = 1, row; row = table.rows[i]; i++) {
+          if (row.cells[6].innerHTML > 0 && row.cells[7].innerHTML > 0) {
+            alert(row.id + " matched a rule");
+            document.getElementById("submitClaim").style = "visibility:visible";
+            document.getElementById("runScenarios").style = "visibility:hidden"
+          } else {
+            alert("nothing matched");
           }
-      }); 
-    }
+      }
+  }
 </script>
 
 <link rel="stylesheet"
@@ -31,7 +34,7 @@
   <div class="container">
 
   <h1 style='text-align:center'>RECENT TRIPS</h1>
-   <table class="table table-bordered">
+   <table id="tripTable" class="table table-bordered">
     <thead>
       <tr>
         <th>Start</th>
@@ -51,6 +54,10 @@
           <td><%= trip.start_address.name %></td>
           <td><%= trip.end_address.name %></td>
           <td><%= trip.distance_m %></td>
+          <td style="visibility:hidden"><%= trip.hard_brakes %></td>
+          <td style="visibility:hidden"><%= trip.ignition_off %></td>
+          <td style="visibility:hidden"><%= trip.duration_over_70_s %></td>
+          <td style="visibility:hidden"><%= trip.engine_temperature %></td>
         </tr>
       <% }); %>
     </tbody>
@@ -81,8 +88,8 @@
       </tbody>
     </table>
   </form>
-  <button onclick="runScenarios(<%=trips%>)">Run Scenarios</button>
+  <button id="runScenarios" onclick="runScenarios()">Run Scenarios</button>
+  <input type="submit" value="Submit Claim" style="visibility:hidden" id="submitClaim">
   </div>
-  <br /><a href="/claim">Claim</a>
 </body>
 </html>
