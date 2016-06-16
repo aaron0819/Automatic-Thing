@@ -11,9 +11,9 @@
       var matched = false;
       for (var i = 1, row; row = table.rows[i]; i++) {
           if (row.cells[6].innerHTML > 0 && row.cells[7].innerHTML > 0) {
-            alert(row.id + " matched a rule");
             document.getElementById("submitClaim").style = "visibility:visible";
-            document.getElementById("runScenarios").style = "visibility:hidden"
+            document.getElementById("runScenarios").style = "visibility:hidden";
+            row.style = "background:red";
             matched = true;
             break;
           }
