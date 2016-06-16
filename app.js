@@ -155,6 +155,70 @@ app.get('/claims', function(req, res) {
     }
   });
 });
+app.get('/claims2', function(req, res) {
+  console.log("/claims2");
+
+  request.get({
+    uri: "https://api.automatic.com/user/me/",
+    headers: {Authorization: 'Bearer ' + req.session.token.token.access_token},
+    json: true
+  }, function(e, r, body) {
+    if(e){
+    } else{
+      user = body;
+
+      request.get({
+        uri: "https://api.automatic.com/vehicle/",
+        headers: {Authorization: 'Bearer ' + req.session.token.token.access_token},
+        json: true
+      }, function(e, r, body) {
+        if(e){
+        } else{
+          vehicle = body.results[0];
+        }
+      });
+
+      res.render('claims2', {
+        trips: trips,
+        vehicle: vehicle,
+        user: user
+      });
+
+    }
+  });
+});
+app.get('/claims', function(req, res) {
+  console.log("/claims");
+
+  request.get({
+    uri: "https://api.automatic.com/user/me/",
+    headers: {Authorization: 'Bearer ' + req.session.token.token.access_token},
+    json: true
+  }, function(e, r, body) {
+    if(e){
+    } else{
+      user = body;
+
+      request.get({
+        uri: "https://api.automatic.com/vehicle/",
+        headers: {Authorization: 'Bearer ' + req.session.token.token.access_token},
+        json: true
+      }, function(e, r, body) {
+        if(e){
+        } else{
+          vehicle = body.results[0];
+        }
+      });
+
+      res.render('claims', {
+        trips: trips,
+        vehicle: vehicle,
+        user: user
+      });
+
+    }
+  });
+});
 
 // Start server
 app.listen(port);
