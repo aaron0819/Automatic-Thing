@@ -22,11 +22,6 @@ const authorizationUri = oauth2.authCode.authorizeURL({
   scope: 'scope:user:profile scope:trip scope:location scope:vehicle:profile scope:vehicle:events scope:behavior'
 });
 
-var nodemailer = require('nodemailer');
-var router = express.Router();
-app.use('/sendMail', router);
-router.post('/', handleSendMail);
-
 var api = require('./api');
 var trips;
 var vehicle;
