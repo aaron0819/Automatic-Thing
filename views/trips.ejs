@@ -7,11 +7,11 @@
 <script type="text/javascript">
   function runScenarios() {
     $(document).ready(function(){
-      <% trips.forEach(function(trip) {
+       trips.forEach(function(trip) {
           if (trip.hard_brakes > 0 && trip.ignitionOff > 0) {
               $("." + trip.id).css("background-color":"red");
           }
-      }); %>
+      }); 
     }
   }
 </script>
