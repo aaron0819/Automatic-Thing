@@ -125,8 +125,8 @@ app.get('/claim', (req, res) => {
 
             for(var i = 0; i < vehicles.length; i++) {
               if(i % 2 == 0) {
-                vehicles[i].igitionOn = 0;
-                vehicles[i].igitionOff = -1;
+                vehicles[i].ignitionOn = 0;
+                vehicles[i].ignitionOff = -1;
               } else {
                 vehicles[i].ignitionOff = 1;
                 vehicles[i].ignitionOff = -1;
