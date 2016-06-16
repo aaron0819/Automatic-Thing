@@ -33,7 +33,7 @@
     <span class="input-group-addon">
         <i class="glyphicon glyphicon-bed"></i>
     </span>
-     <input type="text" class="form-control" name="fName" id="inputFirstName" placeholder="Driver License Number">
+     <input type="text" class="form-control" name="fName" id="inputFirstName" placeholder="Driver License Number" value="SPI Concealed">
 
 </div>
  
@@ -41,7 +41,7 @@
     <span class="input-group-addon">
         <i class="glyphicon glyphicon-bed"></i>
     </span>
-     <input type="text" class="form-control" name="lName" id="inputLastName" placeholder="Driver License State">
+     <input type="text" class="form-control" name="lName" id="inputLastName" placeholder="Driver License State" value="IL">
 
 </div>
  
@@ -49,7 +49,7 @@
     <span class="input-group-addon">
         <i class="glyphicon glyphicon-tasks"></i>
     </span>
-     <input type="text" class="form-control" name="lName" id="inputLastName" placeholder="Vin">
+     <input type="text" class="form-control" name="lName" id="inputLastName" placeholder="Vin" value="SPI Concealed">
 
 
 </div> 
@@ -57,7 +57,7 @@
     <span class="input-group-addon">
         <i class="glyphicon glyphicon glyphicon-tasks"></i>
     </span>
-     <input type="text" class="form-control" name="lName" id="inputLastName" placeholder="License Plate Number">
+     <input type="text" class="form-control" name="lName" id="inputLastName" placeholder="License Plate Number" value="ABC-1234">
 
 </div>
 
@@ -68,7 +68,7 @@
     <span class="input-group-addon">
         <i class="glyphicon glyphicon-home"></i>
     </span>
-     <input type="text" class="form-control" name="fName" id="inputFirstName" placeholder="Make">
+     <input type="text" class="form-control" name="make" id="inputModel" placeholder="Make" value="<%= vehicle.make %>">
 
 </div>
 
@@ -76,7 +76,7 @@
     <span class="input-group-addon">
         <i class="glyphicon glyphicon-home"></i>
     </span>
-     <input type="text" class="form-control" name="fName" id="inputFirstName" placeholder="Model">
+     <input type="text" class="form-control" name="model" id="inputModel" placeholder="Model" value="<%= vehicle.model %>">
 
 </div>
 
@@ -84,15 +84,7 @@
     <span class="input-group-addon">
         <i class="glyphicon glyphicon-home"></i>
     </span>
-     <input type="text" class="form-control" name="fName" id="inputFirstName" placeholder="Body Style">
-
-</div>
-
-<div class="input-group" style="padding-bottom:20px">
-    <span class="input-group-addon">
-        <i class="glyphicon glyphicon-home"></i>
-    </span>
-     <input type="text" class="form-control" name="fName" id="inputFirstName" placeholder="Year">
+     <input type="text" class="form-control" name="fName" id="inputFirstName" placeholder="Year" value="<%= vehicle.year %>">
 
 </div>
 
