@@ -108,7 +108,7 @@ app.get('/trips', function(req, res) {
     }
   }
 
-  res.render('trips', {
+  res.render('claim', {
     trips: trips
   });
 });
@@ -118,9 +118,6 @@ app.get('/', (req, res) => {
   res.send('<a href="/auth">Log in with Automatic</a><br /><a href="/claim">Claim</a>');
 });
 
-app.get('/claim', (req, res) => {
-  res.redirect('/claim');
-});
 // Start server
 app.listen(port);
 
