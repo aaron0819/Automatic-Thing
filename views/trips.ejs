@@ -41,7 +41,7 @@
 			<h2 style="color:white; text-align: center;">Automatic Claim Generator</h2>
 		</div>
 		<br />
-		<div class="col-md-10 well well-lg" style="text-align:center; background-color: #E5DB97"><h1>RECENT TRIPS</h1></div>
+		<div class="col-md-12 well well-lg" style="text-align:center; background-color: #E5DB97"><h1>RECENT TRIPS</h1></div>
 		<div class="col-md-12">
 			<table id="tripTable" class="table table-bordered table-striped table-responsive">
 				<thead>
@@ -57,7 +57,7 @@
 				<tbody>
 					<% trips.forEach(function(trip) {%>
 					<tr id="<%= trip.id %>">
-						<td><%= trip.started_at.substring(11,19) %></td>
+						<td><%= trip.started_at %></td>
 						<td><%= trip.ended_at.substring(11,19) %></td>
 						<td><%= Math.floor(trip.duration_s / 60) %></td>
 						<td><%= trip.start_address.name %></td>
