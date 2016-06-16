@@ -48,9 +48,11 @@
 		   </div>
 		</nav>
 		<br />
-		<div class="col-md-12 well well-lg" style="text-align:center; background-color: #E5DB97"><h1>RECENT TRIPS</h1></div>
+			 <div class="row">
+        			 <div class="well">Trip Table - A list of all of my trips</div>
+                	</div>
 		<div class="col-md-12">
-			<table id="tripTable" class="table table-bordered table-striped table-responsive">
+			<table id="tripTable" class="table table-striped table-responsive">
 				<thead>
 					<tr>
 						<th>Start</th>
@@ -79,7 +81,11 @@
 				</tbody>
 			</table>
 			<form action="/claims">
-				<table class="table table-bordered">
+				
+				 <div class="row">
+        			 <div class="well">Scenarios Engine - Add a scenario to run against the server data</div>
+                	</div>
+				<table class="table table-striped">
 					<thead>
 						<tr>
 							<th>Scenario # </th>
@@ -95,7 +101,7 @@
 						<tr>
 							<td>Scenario One</td>
 							<div class="checkbox">
-								<td><input type="checkbox" name="scenarioEnabled" value="Check for Potential Claims" checked></td>
+								<td><input type="checkbox" name="scenarioEnabled" value="Check for Potential Claims" ></td>
                                     
 							</div>
 							<td>Sudden drop in G-Forces (>.05)</td>
@@ -107,7 +113,7 @@
                         <tr>
 							<td>Scenario Two</td>
 							<div class="checkbox">
-								<td><input type="checkbox" name="scenarioEnabled" value="2 for Potential Claims" checked></td>
+								<td><input type="checkbox" name="scenarioEnabled" value="2 for Potential Claims" ></td>
                                     
 							</div>
 							<td>Sudden drop in G-Forces (>.05)</td>
@@ -119,7 +125,7 @@
                         <tr>
 							<td>Scenario Three</td>
 							<div class="checkbox">
-								<td><input type="checkbox" name="scenarioEnabled" value="3 for Potential Claims" checked></td>
+								<td><input type="checkbox" name="scenarioEnabled" value="3 for Potential Claims" ></td>
                                     
 							</div>
 							<td>Sudden drop in G-Forces (>.05)</td>
