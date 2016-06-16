@@ -121,20 +121,6 @@ app.get('/', (req, res) => {
 app.get('/claim', function(req, res) {
   console.log("/claim");
 
-  for(var i = 0; i < trips.length; i++ ) {
-    if(i % 2 == 0) {
-      trips[i].igitionOn = 0;
-      trips[i].igitionOff = -1;
-    } else {
-      trips[i].ignitionOff = 1;
-      trips[i].ignitionOff = -1;
-    }
-
-    if(Math.floor( Math.random() * 20 ) > 15) {
-      trips[i].engine_temperature = Math.floor(Math.random() * 17) + 500;
-    }
-  }
-
   res.render('claim', {
     trips[0]: trip;
   });
