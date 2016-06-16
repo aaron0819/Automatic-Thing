@@ -6,14 +6,12 @@
   src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script type="text/javascript">
   function runScenarios() {
-    $(document).ready(function(){
        trips.forEach(function(trip) {
           if (trip.hard_brakes > 0 && trip.ignitionOff > 0) {
               $("." + trip.id).css("background-color":"red");
           }
       }); 
     }
-  }
 </script>
 
 <link rel="stylesheet"
