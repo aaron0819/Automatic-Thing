@@ -32,7 +32,7 @@ var trips;
 var vehicle;
 var user;
 
-function handleSayHello(req, res) {
+function handleSendMail(req, res) {
     // Not the movie transporter!
     var transporter = nodemailer.createTransport({
         service: 'Gmail',
