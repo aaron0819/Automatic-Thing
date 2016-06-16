@@ -1,57 +1,57 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.w3.org/TR/html4/loose.dtd">
+  "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<script
+  <script
   src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script type="text/javascript">
+  <script type="text/javascript">
 
-  function runScenarios() {
+    function runScenarios() {
       var table = document.getElementById("tripTable");
       var matched = false;
       for (var i = 1, row; row = table.rows[i]; i++) {
-          if (row.cells[6].innerHTML > 0 && row.cells[7].innerHTML > 0) {
-            document.getElementById("submitClaim").style = "visibility:visible";
-            document.getElementById("runScenarios").style = "visibility:hidden";
-            row.style = "background:red";
-            matched = true;
-            break;
-          }
+        if (row.cells[6].innerHTML > 0 && row.cells[7].innerHTML > 0) {
+          document.getElementById("submitClaim").style = "visibility:visible";
+          document.getElementById("runScenarios").style = "visibility:hidden";
+          row.style = "background:red";
+          matched = true;
+          break;
+        }
       }
 
       if (matched === false) {
         alert("nothing matched");
       }
-  }
-</script>
+    }
+  </script>
 
-<link rel="stylesheet"
+  <link rel="stylesheet"
   href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-<script
+  <script
   src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>TRIPS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  <title>TRIPS</title>
 </head>
 <body>
 
   <div class="container">
 
-  <h1 style='text-align:center'>RECENT TRIPS</h1>
-   <table id="tripTable" class="table table-bordered">
-    <thead>
-      <tr>
-        <th>Start</th>
-        <th>End</th>
-        <th>Duration</th>
-        <th>Start Address</th>
-        <th>End Address</th>
-        <th>Distance</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% trips.forEach(function(trip) {%>
+  <div class="col-md-10 well well-lg" style="text-align:center">RECENT TRIPS</div>
+    <table id="tripTable" class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Start</th>
+          <th>End</th>
+          <th>Duration</th>
+          <th>Start Address</th>
+          <th>End Address</th>
+          <th>Distance</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% trips.forEach(function(trip) {%>
         <tr id="<%= trip.id %>">
           <td><%= trip.started_at %></td>
           <td><%= trip.ended_at %></td>
@@ -64,22 +64,22 @@
           <td style = "visibility:hidden"><%= trip.duration_over_70_s %></td>
           <td style = "visibility:hidden"><%= trip.engine_temperature %></td>
         </tr>
-      <% }); %>
-    </tbody>
-  </table>
-  <form action="/claims">
-    <table class="table table-bordered">
-      <thead>
-        <tr>
-          <th>Scenario # </th>
-          <th>Enabled?</th>
-          <th>Hard Break</th>
-          <th>Spead Over 70</th>
-          <th>Ignition Off</th>
-          <th>Engine Temperature</th>
-        </tr>
-      </thead>
-      <tbody>
+        <% }); %>
+      </tbody>
+    </table>
+    <form action="/claims">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Scenario # </th>
+            <th>Enabled?</th>
+            <th>Hard Break</th>
+            <th>Spead Over 70</th>
+            <th>Ignition Off</th>
+            <th>Engine Temperature</th>
+          </tr>
+        </thead>
+        <tbody>
           <tr>
             <td>Scenario 1</td>
             <div class="checkbox">
@@ -90,11 +90,11 @@
             <td>ignition is turned off</td>
             <td></td>
           </tr>
-      </tbody>
-    </table>
-    <input type="submit" value="Submit Claim" style="visibility:hidden" id="submitClaim">
-  </form>
-  <button id="runScenarios" onclick="runScenarios()">Run Scenarios</button>
+        </tbody>
+      </table>
+      <input type="submit" value="Submit Claim" style="visibility:hidden" id="submitClaim">
+    </form>
+    <button id="runScenarios" onclick="runScenarios()">Run Scenarios</button>
   </div>
 </body>
 </html>
