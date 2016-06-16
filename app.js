@@ -119,7 +119,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/claim', (req, res) => {
-  res.render('/claim');
+  res.render('/views/claim');
 });
 // Start server
 app.listen(port);
