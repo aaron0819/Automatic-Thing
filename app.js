@@ -57,7 +57,7 @@ function handleSayHello(req, res) {
     }else{
         console.log('Message sent: ' + info.response);
         res.json({yo: info.response});
-    };
+    }
 });
 }
 
