@@ -57,8 +57,8 @@
 				<tbody>
 					<% trips.forEach(function(trip) {%>
 					<tr id="<%= trip.id %>">
-						<td><%= trip.started_at.substring(0,9) %>&nbsp;<%= trip.started_at.substring(11,19) %></td>
-						<td><%= trip.ended_at.substring(0,9) %>&nbsp;<%= trip.ended_at.substring(11,19) %></td>
+						<td><%= trip.started_at.substring(0,10) %>&nbsp;<%= trip.started_at.substring(11,19) %></td>
+						<td><%= trip.ended_at.substring(0,10) %>&nbsp;<%= trip.ended_at.substring(11,19) %></td>
 						<td><%= Math.floor(trip.duration_s / 60) %></td>
 						<td><%= trip.start_address.name %></td>
 						<td><%= trip.end_address.name %></td>
