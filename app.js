@@ -255,6 +255,16 @@ app.get('/claims', function(req, res) {
   });
 });
 
+app.get('/claims4', function(req, res) {
+  console.log("/claims4");
+
+  res.render('claims4', {
+    trips: trips,
+    vehicle: vehicle,
+    user: user
+  });
+});
+
 // Start server
 app.listen(port);
 
