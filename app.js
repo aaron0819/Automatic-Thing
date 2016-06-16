@@ -118,14 +118,6 @@ app.get('/', (req, res) => {
   res.send('<a href="/auth">Log in with Automatic</a>');
 });
 
-app.get('/claim', function(req, res) {
-  console.log("/claim");
-
-  res.render('claim', {
-    trips[0]: trip;
-  });
-});
-
 // Start server
 app.listen(port);
 
