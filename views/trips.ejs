@@ -80,7 +80,7 @@
 							<th>G-Forces</th>
 							<th>Hard Brake</th>
 							<th>Speed Over 70</th>
-							<th>Ignition Off</th>
+							<th>Ignition Status</th>
 							<th>Engine Temperature</th>
 						</tr>
 					</thead>
@@ -89,12 +89,37 @@
 							<td>Scenario One</td>
 							<div class="checkbox">
 								<td><input type="checkbox" name="scenarioEnabled" value="Check for Potential Claims" checked></td>
+                                    
 							</div>
-							<td>Sudden drop in G-Forces</td>
-							<td>Sudden hard braking</td>
-							<td>Sudden deceleration</td>
-							<td>Ignition is turned off</td>
-							<td>Spike in engine temperature</td>
+							<td>Sudden drop in G-Forces (>.05)</td>
+							<td>Sudden hard braking (true)</td>
+							<td>Sudden deceleration (70mph-to-0)</td>
+							<td>Ignition is turned off (false)</td>
+							<td>Spike in engine temperature (temp>=500F)</td> 
+						</tr>
+                        <tr>
+							<td>Scenario Two</td>
+							<div class="checkbox">
+								<td><input type="checkbox" name="scenarioEnabled" value="2 for Potential Claims" checked></td>
+                                    
+							</div>
+							<td>Sudden drop in G-Forces (>.05)</td>
+							<td>Sudden hard braking (true)</td>
+							<td>Hard Acceleration(50mph-to-80)</td>
+							<td>Ignition is turned on (true)</td>
+							<td>Spike in engine temperature (temp>=200F)</td> 
+						</tr>
+                        <tr>
+							<td>Scenario Three</td>
+							<div class="checkbox">
+								<td><input type="checkbox" name="scenarioEnabled" value="3 for Potential Claims" checked></td>
+                                    
+							</div>
+							<td>Sudden drop in G-Forces (>.05)</td>
+							<td>Sudden hard braking (false)</td>
+							<td>Hard Acceleration(80-to-100)</td>
+							<td>Ignition is turned on (false)</td>
+							<td>Spike in engine temperature (temp>=200F)</td> 
 						</tr>
 					</tbody>
 				</table>
