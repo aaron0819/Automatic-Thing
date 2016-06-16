@@ -146,11 +146,7 @@ app.get('/claims', function(req, res) {
     } else{
       vehicle = body.results[0];
 
-      res.render('claims', {
-        trips: trips,
-        vehicle: vehicle,
-        user: user;
-      });
+      
     }
   });
 });
