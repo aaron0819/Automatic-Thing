@@ -115,11 +115,12 @@ app.get('/trips', function(req, res) {
 
 // Main page of app with link to log in
 app.get('/', (req, res) => {
-  res.send('<a href="/auth">Log in with Automatic</a>');
+  res.send('<a href="/auth">Log in with Automatic</a><br /><a href="/claim">Claim</a>');
 });
 
-
-
+app.get('/claim', (req, res) => {
+  res.render('/claim');
+});
 // Start server
 app.listen(port);
 
