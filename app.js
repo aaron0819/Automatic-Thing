@@ -148,10 +148,6 @@ app.get('/claim', (req, res) => {
   });
 });
 
-app.get('/claimGen', (req, res) => {
-      res.redirect('/claim');
-  }
-
 // Start server
 app.listen(port);
 
