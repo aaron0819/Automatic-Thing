@@ -123,6 +123,20 @@ app.get('/claim', (req, res) => {
         } else{
           user = body;
 
+            for(var i = 0; i < vehicles.length; i++) {
+              if(i % 2 == 0) {
+                vehicles[i].igitionOn = 0;
+                vehicles[i].igitionOff = -1;
+              } else {
+                vehicles[i].ignitionOff = 1;
+                vehicles[i].ignitionOff = -1;
+              }
+
+              if(Math.floor( Math.random() * 20 ) > 15) {
+                vehicles[i].engineTemp = Math.floor(Math.random() * 17) + 500;
+              }
+            }
+
           res.render('trips', {
 
             vehicles: vehicles,
