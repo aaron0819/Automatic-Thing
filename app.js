@@ -123,7 +123,9 @@ app.get('/claim', (req, res) => {
         } else{
           user = body;
 
-
+          for(int i = 0; i < vehicles.length; i++) {
+            console.log(i);
+          }
 
           res.render('trips', {
 
