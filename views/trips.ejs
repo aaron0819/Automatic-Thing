@@ -7,15 +7,13 @@
 <script type="text/javascript">
 
   function runScenarios(trips) {
-      <% trips.forEach(function(trip) {
+       trips.forEach(function(trip) {
           if (trip.hard_brakes > 0 && trip.ignitionOff > 0) {
               alert(trip.id);
             var matchedTrip = 
-              $("." + trip.id).css("background-color":"red");
+              $("." + trip.id).css("background-color:red");
           }
-      }); %>
-
-      <%=trips.id%>
+      }); 
     }
 </script>
 
