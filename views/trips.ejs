@@ -51,18 +51,18 @@
 						<th>Duration</th>
 						<th>Start Address</th>
 						<th>End Address</th>
-						<th>Distance</th>
+						<th>Distance (Miles)</th>
 					</tr>
 				</thead>
 				<tbody>
 					<% trips.forEach(function(trip) {%>
 					<tr id="<%= trip.id %>">
-						<td><%= trip.started_at %></td>
-						<td><%= trip.ended_at %></td>
+						<td><%= trip.started_at.substring(10,18) %></td>
+						<td><%= trip.ended_at.substring(10,18) %></td>
 						<td><%= Math.floor(trip.duration_s / 60) %></td>
 						<td><%= trip.start_address.name %></td>
 						<td><%= trip.end_address.name %></td>
-						<td><%= trip.distance_m %></td>
+						<td><%= (trip.distance_m * 0.000621371) %></td>
 						<td style = "visibility:hidden"><%= trip.hard_brakes %></td>
 						<td style = "visibility:hidden"><%= trip.ignition_off %></td>
 						<td style = "visibility:hidden"><%= trip.duration_over_70_s %></td>
