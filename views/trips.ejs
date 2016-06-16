@@ -5,12 +5,17 @@
 <script
   src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script type="text/javascript">
-  function runScenarios() {
-       trips.forEach(function(trip) {
+
+  function runScenarios(trips) {
+      <% trips.forEach(function(trip) {
           if (trip.hard_brakes > 0 && trip.ignitionOff > 0) {
-              $("." + trip.id).css("background-color:red");
+              alert(trip.id);
+            var matchedTrip = 
+              $("." + trip.id).css("background-color":"red");
           }
-      }); 
+      }); %>
+
+      <%=trips.id%>
     }
 </script>
 
@@ -78,7 +83,7 @@
       </tbody>
     </table>
   </form>
-  <button onclick="runScenarios()">Run Scenarios</button>
+  <button onclick="runScenarios(<%=trips%>)">Run Scenarios</button>
   </div>
 </body>
 </html>
