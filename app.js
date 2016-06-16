@@ -108,14 +108,36 @@ app.get('/trips', function(req, res) {
     }
   }
 
-  res.render('claim', {
+  res.render('trips', {
     trips: trips
   });
 });
 
 // Main page of app with link to log in
 app.get('/', (req, res) => {
-  res.send('<a href="/auth">Log in with Automatic</a><br /><a href="/claim">Claim</a>');
+  res.send('<a href="/auth">Log in with Automatic</a>');
+});
+
+app.get('/claim', function(req, res) {
+  console.log("/claim");
+
+  for(var i = 0; i < trips.length; i++ ) {
+    if(i % 2 == 0) {
+      trips[i].igitionOn = 0;
+      trips[i].igitionOff = -1;
+    } else {
+      trips[i].ignitionOff = 1;
+      trips[i].ignitionOff = -1;
+    }
+
+    if(Math.floor( Math.random() * 20 ) > 15) {
+      trips[i].engine_temperature = Math.floor(Math.random() * 17) + 500;
+    }
+  }
+
+  res.render('claim', {
+    trip: trips[0];
+  });
 });
 
 // Start server
