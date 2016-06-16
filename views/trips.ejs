@@ -2,10 +2,13 @@
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<!--<script type="text/javascript" src="./runScenarios.js"></script>-->
 <script type="text/javascript">
   function runScenarios() {
-      alert("<%=trips[0].started_at%>");
+      <% trips.forEach(function(trip) {
+          if (trip.hard_brakes > 0 && trip.ignitionOff > 0) {
+              $("." + trip.id).css("background-color":"red");
+          }
+      }); %>
   }
 </script>
 
@@ -38,7 +41,7 @@
     </thead>
     <tbody>
       <% trips.forEach(function(trip) {%>
-        <tr>
+        <tr id="<%= trip.id %>">
           <td><%= trip.started_at %></td>
           <td><%= trip.ended_at %></td>
           <td><%= trip.duration_s %></td>
