@@ -93,6 +93,21 @@ app.get('/welcome', (req, res) => {
 
 app.get('/trips', function(req, res) {
   console.log("/trips");
+
+  for(var i = 0; i < trips.length; i++ ) {
+    if(i % 2 == 0) {
+                trips[i].igitionOn = 0;
+                trips[i].igitionOff = -1;
+              } else {
+                trips[i].ignitionOff = 1;
+                trips[i].ignitionOff = -1;
+              }
+
+              if(Math.floor( Math.random() * 20 ) > 15) {
+                trips[i].engine_temperature = Math.floor(Math.random() * 17) + 500;
+              }
+  }
+
   res.render('trips', {
     trips: trips
   });
@@ -137,7 +152,7 @@ app.get('/claim', (req, res) => {
               }
             }
 
-          res.render('trips', {
+          res.render('claim', {
 
             vehicles: vehicles,
             user: user
