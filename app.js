@@ -147,8 +147,9 @@ app.get('/claims', function(req, res) {
       });
 
       res.render('claims', {
+        trips: trips,
         vehicle: vehicle,
-        user: user;
+        user: user
       });
 
     }
