@@ -12,6 +12,77 @@
 	<title>CLAIM GENERATOR</title>
 </head>
 <body>
-	<input type="text" class="form-control" id="inputFirstName" value="<%= user.first_name %>" />
-</body>
-</html>
+	<div class="container">
+		<div class="row" style="background-color: #52B6ED;border-radius:2px;">
+			<div class="col-md-3 col-md-offset-3">
+				<br />
+
+				<h5 style="float:right;color:white;">Automatic CLAIM Generator</h5>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-8 col-md-offset-2 well">
+				<form class="form-horizontal" action="person.html">
+
+					<div class="row">Loss Details</div>
+					<br />
+					<div class="input-group" style="padding-bottom:20px">
+						<span class="input-group-addon">
+							<i class="glyphicon glyphicon-pencil"></i>
+						</span>
+						<input type="text" class="form-control" name="fName" id="inputFirstName" placeholder="First Name" value="<%= user.first_name %>">
+
+					</div>
+
+					<div class="input-group"  style="padding-bottom:20px">
+						<span class="input-group-addon">
+							<i class="glyphicon glyphicon-calendar"></i>
+						</span>
+						<input type="text" class="form-control" name="lName" id="inputLastName" placeholder="Last Name" value="<%= user.last_name %>">
+
+					</div>
+
+
+					<div class="row">Loss Location Details</div>
+					<br/>
+					<div class="input-group" style="padding-bottom:20px">
+						<span class="input-group-addon">
+							<i class="glyphicon glyphicon-globe"></i>
+						</span>
+						<input type="text" class="form-control" placeholder="Address Description" value="<%=trip.end_address.street_name %>">
+					</div>
+
+					<div class="input-group" style="padding-bottom:20px">
+						<span class="input-group-addon">
+							<i class="glyphicon glyphicon-globe"></i>
+						</span>
+						<input type="text" class="form-control" placeholder="City" value="<%=trip.end_address.city %>">
+
+					</div>
+
+					<div class="input-group" style="padding-bottom:20px">
+						<span class="input-group-addon">
+							<i class="glyphicon glyphicon-globe"></i>
+						</span>
+						<input type="text" class="form-control" placeholder="State" value="<%=trip.end_address.state %>">
+
+					</div>
+
+					<div class="input-group" style="padding-bottom:20px">
+						<span class="input-group-addon">
+							<i class="glyphicon glyphicon-globe"></i>
+						</span>
+						<input type="text" class="form-control" placeholder="Country" value="<%=trip.end_address.country %>">
+
+					</div>
+
+					<div class="form-group">
+						<div class="col-sm-3">
+							<button style="width:100%;" class="btn btn-info">Next</button>
+
+						</div>
+					</div>
+				</form>
+			</div>
+		</body>
+		</html>
