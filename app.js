@@ -115,39 +115,10 @@ app.get('/trips', function(req, res) {
 
 // Main page of app with link to log in
 app.get('/', (req, res) => {
-  res.send('<a href="/auth">Log in with Automatic</a><a href="/claim">Claim</a>');
+  res.send('<a href="/auth">Log in with Automatic</a>');
 });
 
-app.get('/claim', (req, res) => {
-  request.get({
-    uri: "https://api.automatic.com/vehicle/",
-    headers: {Authorization: 'Bearer ' + req.session.token.token.access_token},
-    json: true
-  }, function(e, r, body) {
-    if(e){
-    } else{
 
-      vehicles = body.results[0];
-
-      request.get({
-        uri: "https://api.automatic.com/user/me",
-        headers: {Authorization: 'Bearer ' + req.session.token.token.access_token},
-        json: true
-      }, function(e, r, body) {
-        if(e){
-        } else{
-          user = body;
-
-          res.render('claim', {
-
-            vehicles: vehicles,
-            user: user;
-          });
-        }
-      });
-    }
-  });
-});
 
 // Start server
 app.listen(port);
