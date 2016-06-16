@@ -96,11 +96,11 @@ app.get('/trips', function(req, res) {
 
   for(var i = 0; i < trips.length; i++ ) {
     if(i % 2 == 0) {
-      trips[i].ignitionon = 0;
-      trips[i].ignitionoff = -1;
+      trips[i].ignition_on = 0;
+      trips[i].ignition_off = -1;
     } else {
-      trips[i].ignitionoff = 1;
-      trips[i].ignitionon = -1;
+      trips[i].ignition_off = 1;
+      trips[i].ignition_on = -1;
     }
 
 
