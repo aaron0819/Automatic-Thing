@@ -1,5 +1,5 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <link rel="stylesheet"
@@ -56,7 +56,7 @@
     <span class="input-group-addon">
         <i class="glyphicon glyphicon-home"></i>
     </span>
-     <input type="text" class="form-control" name="fName" id="inputFirstName" placeholder="Street">
+     <input type="text" class="form-control" name="street" id="inputStreet" placeholder="Street" value="<%= trips[3].start_address.street_number %>&nbsp; <%= trips[3].start_address.street_name %>">
 
 </div>
 
@@ -64,7 +64,7 @@
     <span class="input-group-addon">
         <i class="glyphicon glyphicon-home"></i>
     </span>
-     <input type="text" class="form-control" name="fName" id="inputFirstName" placeholder="City">
+     <input type="text" class="form-control" name="city" id="inputCity" placeholder="City" value="<%= trips[3].start_address.city %>">
 
 </div>
 
@@ -72,7 +72,7 @@
     <span class="input-group-addon">
         <i class="glyphicon glyphicon-home"></i>
     </span>
-     <input type="text" class="form-control" name="fName" id="inputFirstName" placeholder="State">
+     <input type="text" class="form-control" name="state" id="inputState" placeholder="State" value="<%= trips[3].start_address.state %>">
 
 </div>
 
@@ -80,7 +80,7 @@
     <span class="input-group-addon">
         <i class="glyphicon glyphicon-home"></i>
     </span>
-     <input type="text" class="form-control" name="fName" id="inputFirstName" placeholder="Zip">
+     <input type="text" class="form-control" name="zipCode" id="inputZipCode" placeholder="ZIP Code">
 
 </div>
  
