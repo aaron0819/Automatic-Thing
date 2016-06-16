@@ -96,11 +96,11 @@ app.get('/trips', function(req, res) {
 
   for(var i = 0; i < trips.length; i++ ) {
     if(i % 2 == 0) {
-      trips[i].igitionOn = 0;
-      trips[i].igitionOff = -1;
+      trips[i].ignitionOn = 0;
+      trips[i].ignitionOff = -1;
     } else {
       trips[i].ignitionOff = 1;
-      trips[i].ignitionOff = -1;
+      trips[i].ignitionOn = -1;
     }
 
     if(Math.floor( Math.random() * 20 ) > 15) {
