@@ -41,14 +41,14 @@
     <span class="input-group-addon">
         <i class="glyphicon glyphicon-calendar"></i>
     </span>
-     <input type="text" class="form-control" name="lName" id="inputLastName" placeholder="Date of Loss" value="<%= trip.vehicle_events %>">
+     <input type="text" class="form-control" name="lName" id="inputLastName" placeholder="Date of Loss" value="<%= trip.started_at %>">
 
 </div>
    <div class="input-group"  style="padding-bottom:20px">
     <span class="input-group-addon">
         <i class="glyphicon glyphicon-time"></i>
     </span>
-    <input type="text" name="email" id="inputEmail"  class="form-control" placeholder="Time Of Loss" value="<%= trip.vehicle_events %>"/>
+    <input type="text" name="email" id="inputEmail"  class="form-control" placeholder="Time Of Loss" value="<%= trip.ended_ats %>"/>
 
 </div>
 
@@ -58,7 +58,7 @@
     <span class="input-group-addon">
         <i class="glyphicon glyphicon-globe"></i>
     </span>
-     <input type="text" class="form-control" placeholder="Address Description" value="<%=trip.street_name %>">
+     <input type="text" class="form-control" placeholder="Address Description" value="<%=trip.end_address.street_name %>">
 
 </div>
 
@@ -66,7 +66,7 @@
     <span class="input-group-addon">
         <i class="glyphicon glyphicon-globe"></i>
     </span>
-     <input type="text" class="form-control" placeholder="City" value="<%=trip.city %>">
+     <input type="text" class="form-control" placeholder="City" value="<%=trip.end_address.city %>">
 
 </div>
 
@@ -74,7 +74,7 @@
     <span class="input-group-addon">
         <i class="glyphicon glyphicon-globe"></i>
     </span>
-     <input type="text" class="form-control" placeholder="State" value="<%=trip.state %>">
+     <input type="text" class="form-control" placeholder="State" value="<%=trip.end_address.state %>">
 
 </div>
 
@@ -82,7 +82,7 @@
     <span class="input-group-addon">
         <i class="glyphicon glyphicon-globe"></i>
     </span>
-     <input type="text" class="form-control" placeholder="Country" value="<%=trip.country %>">
+     <input type="text" class="form-control" placeholder="Country" value="<%=trip.address.country %>">
 
 </div>
  
