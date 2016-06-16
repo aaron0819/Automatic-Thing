@@ -41,7 +41,7 @@
 			<h2 style="color:white; text-align: center;">Automatic Claim Generator</h2>
 		</div>
 		<br />
-		<div class="col-md-12 well well-lg" style="text-align:center; background-color: #E5DB97"><h1>RECENT TRIPS</h1></div>
+		<div class="col-md-10 well well-lg" style="text-align:center; background-color: #E5DB97"><h1>RECENT TRIPS</h1></div>
 		<div class="col-md-12">
 			<table id="tripTable" class="table table-bordered table-striped table-responsive">
 				<thead>
@@ -59,7 +59,7 @@
 					<tr id="<%= trip.id %>">
 						<td><%= trip.started_at %></td>
 						<td><%= trip.ended_at %></td>
-						<td><%= trip.duration_s %></td>
+						<td><%= Math.floor(trip.duration_s / 60) %></td>
 						<td><%= trip.start_address.name %></td>
 						<td><%= trip.end_address.name %></td>
 						<td><%= trip.distance_m %></td>
@@ -87,20 +87,19 @@
 						<tr>
 							<td>Scenario 1</td>
 							<div class="checkbox">
-								<td><input type="checkbox" name="scenarioEnabled" value="Scenario One" checked></td>
+								<td><input type="checkbox" name="scenarioEnabled" value="scenario1" checked></td>
 							</div>
-							<td>Measured by sudden decrease in G-Force from sensor</td>
-							<td>Check for sudden speed decrease</td>
-							<td>Ignition turns off</td>
-							<td>Check for sudden spike in engine temperature</td>
+							<td>greater than 1</td>
+							<td></td>
+							<td>ignition is turned off</td>
+							<td></td>
 						</tr>
 					</tbody>
 				</table>
 				<input type="submit" value="Submit Claim" style="visibility:hidden" id="submitClaim">
 			</form>
-			<button id="runScenarios" onclick="runScenarios()">Check for Potential Claims</button>
+			<button id="runScenarios" onclick="runScenarios()">Run Scenarios</button>
 		</div>
-		<br />
 	</div>
 </body>
 </html>
