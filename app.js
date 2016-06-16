@@ -96,16 +96,16 @@ app.get('/trips', function(req, res) {
 
   for(var i = 0; i < trips.length; i++ ) {
     if(i % 2 == 0) {
-                trips[i].igitionOn = 0;
-                trips[i].igitionOff = -1;
-              } else {
-                trips[i].ignitionOff = 1;
-                trips[i].ignitionOff = -1;
-              }
+      trips[i].igitionOn = 0;
+      trips[i].igitionOff = -1;
+    } else {
+      trips[i].ignitionOff = 1;
+      trips[i].ignitionOff = -1;
+    }
 
-              if(Math.floor( Math.random() * 20 ) > 15) {
-                trips[i].engine_temperature = Math.floor(Math.random() * 17) + 500;
-              }
+    if(Math.floor( Math.random() * 20 ) > 15) {
+      trips[i].engine_temperature = Math.floor(Math.random() * 17) + 500;
+    }
   }
 
   res.render('trips', {
@@ -115,7 +115,7 @@ app.get('/trips', function(req, res) {
 
 // Main page of app with link to log in
 app.get('/', (req, res) => {
-  res.send('<a href="/auth">Log in with Automatic</a>');
+  res.send('<a href="/auth">Log in with Automatic</a><a href="/claim">Claim</a>');
 });
 
 app.get('/claim', (req, res) => {
