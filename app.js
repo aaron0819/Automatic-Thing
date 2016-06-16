@@ -23,6 +23,8 @@ const authorizationUri = oauth2.authCode.authorizeURL({
 
 var api = require('./api');
 var trips;
+var vehicle;
+var user;
 
 function printTrips() {
   var tripIds = "";
@@ -141,7 +143,7 @@ app.get('/claims', function(req, res) {
         if(e){
         } else{
           vehicle = body.results[0];
-          
+
           res.render('claims', {
             trips: trips,
             vehicle: vehicle,
@@ -152,8 +154,6 @@ app.get('/claims', function(req, res) {
 
     }
   });
-
-
 });
 
 // Start server
