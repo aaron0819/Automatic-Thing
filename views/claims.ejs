@@ -2,100 +2,119 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <link rel="stylesheet"
-    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <script
-    src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script
-    src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-    <title>CLAIM GENERATOR</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<title>CLAIM GENERATOR</title>
 </head>
 <body>
 
 	<div class="container">
 		<div class="row" style="background-color: #52B6ED;border-radius:2px;">
-          <div class="col-md-3 col-md-offset-3">
-              <br />
-              
-              <h5 style="float:right;color:white;">Automatic CLAIM Generator</h5>
-          </div>
-      </div>
-      <div class="row">
-          <div class="col-md-8 col-md-offset-2 well">
-            <form class="form-horizontal" action="person.html">
-              
-              <div class="row">Loss Details</div>
-              <br />
-              <div class="input-group" style="padding-bottom:20px">
-                <span class="input-group-addon">
-                    <i class="glyphicon glyphicon-pencil"></i>
-                </span>
-                <input type="text" class="form-control" name="fName" id="inputFirstName" placeholder="Facts Of Loss">
+			<div class="col-md-3 col-md-offset-3">
+				<br />
 
-            </div>
-            
-            <div class="input-group"  style="padding-bottom:20px">
-                <span class="input-group-addon">
-                    <i class="glyphicon glyphicon-calendar"></i>
-                </span>
-                <input type="text" class="form-control" name="lName" id="inputLastName" placeholder="Date of Loss" value="<%= trips[3].vehicle_events[0].created_at %>">
+				<h5 style="float:right;color:white;">Automatic CLAIM Generator</h5>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-8 col-md-offset-2 well">
+				<form class="form-horizontal" action="person.html">
 
-            </div>
-            <div class="input-group"  style="padding-bottom:20px">
-                <span class="input-group-addon">
-                    <i class="glyphicon glyphicon-time"></i>
-                </span>
-                <input type="text" name="email" id="inputEmail"  class="form-control" placeholder="Time Of Loss" value="<%= trips[3].ended_at %>"/>
+					<div class="row">Personal Details</div>
+						<br />
+						<div class="input-group" style="padding-bottom:20px">
+							<label labelfor="fName">First Name</label>
+							<br />
+							<span class="input-group-addon">
+								<i class="glyphicon glyphicon-pencil"></i>
+							</span>
+							<input type="text" class="form-control" name="fName" id="inputFirstName" placeholder="First Name" value="<%= user.first_name %>">
+						</div>
+						<div class="input-group" style="padding-bottom:20px">
+						<label labelfor="lName">Last Name</label>
+						<br />
+						<span class="input-group-addon">
+							<i class="glyphicon glyphicon-pencil"></i>
+						</span>
+						<input type="text" class="form-control" name="lName" id="inputLastName" placeholder="Last Name" value="<%= user.last_name %>">
+					</div>
 
-            </div>
+					<div class="row">Loss Details</div>
+					<br />
+					<div class="input-group" style="padding-bottom:20px">
+						<span class="input-group-addon">
+							<i class="glyphicon glyphicon-pencil"></i>
+						</span>
+						<input type="text" class="form-control" name="fName" id="inputFirstName" placeholder="Facts Of Loss">
 
-            <div class="row">Loss Location Details</div>
-            <br/>
-            <div class="input-group" style="padding-bottom:20px">
-                <span class="input-group-addon">
-                    <i class="glyphicon glyphicon-globe"></i>
-                </span>
-                <input type="text" class="form-control" placeholder="Address Description" value="<%= trips[3].end_address.street_number %>&nbsp;<%= trips[3].end_address.street_name %>">
+					</div>
 
-            </div>
+					<div class="input-group"  style="padding-bottom:20px">
+						<span class="input-group-addon">
+							<i class="glyphicon glyphicon-calendar"></i>
+						</span>
+						<input type="text" class="form-control" name="lName" id="inputLastName" placeholder="Date of Loss" value="<%= trips[3].vehicle_events[0].created_at %>">
 
-            <div class="input-group" style="padding-bottom:20px">
-                <span class="input-group-addon">
-                    <i class="glyphicon glyphicon-globe"></i>
-                </span>
-                <input type="text" class="form-control" placeholder="City" value="<%=trips[3].end_address.city %>">
+					</div>
+					<div class="input-group"  style="padding-bottom:20px">
+						<span class="input-group-addon">
+							<i class="glyphicon glyphicon-time"></i>
+						</span>
+						<input type="text" name="email" id="inputEmail"  class="form-control" placeholder="Time Of Loss" value="<%= trips[3].ended_at %>"/>
 
-            </div>
+					</div>
 
-            <div class="input-group" style="padding-bottom:20px">
-                <span class="input-group-addon">
-                    <i class="glyphicon glyphicon-globe"></i>
-                </span>
-                <input type="text" class="form-control" placeholder="State" value="<%=trips[3].end_address.state %>">
+					<div class="row">Loss Location Details</div>
+					<br/>
+					<div class="input-group" style="padding-bottom:20px">
+						<span class="input-group-addon">
+							<i class="glyphicon glyphicon-globe"></i>
+						</span>
+						<input type="text" class="form-control" placeholder="Address Description" value="<%= trips[3].end_address.street_number %>&nbsp;<%= trips[3].end_address.street_name %>">
 
-            </div>
+					</div>
 
-            <div class="input-group" style="padding-bottom:20px">
-                <span class="input-group-addon">
-                    <i class="glyphicon glyphicon-globe"></i>
-                </span>
-                <input type="text" class="form-control" placeholder="Country" value="<%=trips[3].end_address.country %>">
+					<div class="input-group" style="padding-bottom:20px">
+						<span class="input-group-addon">
+							<i class="glyphicon glyphicon-globe"></i>
+						</span>
+						<input type="text" class="form-control" placeholder="City" value="<%=trips[3].end_address.city %>">
 
-            </div>
-            
-            <div class="form-group">
-                <div class="col-sm-3">
-                  <button style="width:100%;" class="btn btn-info">Next</button>
-                  
-              </div>
-          </div>
-      </form>
-      
-  </div>
-</div>
-</div>
+					</div>
+
+					<div class="input-group" style="padding-bottom:20px">
+						<span class="input-group-addon">
+							<i class="glyphicon glyphicon-globe"></i>
+						</span>
+						<input type="text" class="form-control" placeholder="State" value="<%=trips[3].end_address.state %>">
+
+					</div>
+
+					<div class="input-group" style="padding-bottom:20px">
+						<span class="input-group-addon">
+							<i class="glyphicon glyphicon-globe"></i>
+						</span>
+						<input type="text" class="form-control" placeholder="Country" value="<%=trips[3].end_address.country %>">
+
+					</div>
+
+					<div class="form-group">
+						<div class="col-sm-3">
+							<button style="width:100%;" class="btn btn-info">Next</button>
+
+						</div>
+					</div>
+				</form>
+
+			</div>
+		</div>
+	</div>
 </body>
 </html>
