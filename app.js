@@ -96,15 +96,18 @@ app.get('/trips', function(req, res) {
 
   for(var i = 0; i < trips.length; i++ ) {
     if(i % 2 == 0) {
-      trips[i].ignitionOn = 0;
-      trips[i].ignitionOff = -1;
+      trips[i].ignitionon = 0;
+      trips[i].ignitionoff = -1;
     } else {
-      trips[i].ignitionOff = 1;
-      trips[i].ignitionOn = -1;
+      trips[i].ignitionoff = 1;
+      trips[i].ignitionon = -1;
     }
+
 
     if(Math.floor( Math.random() * 20 ) > 15) {
       trips[i].engine_temperature = Math.floor(Math.random() * 17) + 500;
+    } else {
+      trips[i].engine_temperature = Math.floor(Math.random() * 17) + 200;
     }
   }
 
