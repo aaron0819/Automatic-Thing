@@ -59,15 +59,15 @@
           <td><%= trip.start_address.name %></td>
           <td><%= trip.end_address.name %></td>
           <td><%= trip.distance_m %></td>
-          <td><%= trip.hard_brakes %></td>
-          <td><%= trip.ignition_off %></td>
-          <td><%= trip.duration_over_70_s %></td>
-          <td><%= trip.engine_temperature %></td>
+          <td style = "visibility:hidden"><%= trip.hard_brakes %></td>
+          <td style = "visibility:hidden"><%= trip.ignition_off %></td>
+          <td style = "visibility:hidden"><%= trip.duration_over_70_s %></td>
+          <td style = "visibility:hidden"><%= trip.engine_temperature %></td>
         </tr>
       <% }); %>
     </tbody>
   </table>
-  <form>
+  <form action="/claim">
     <table class="table table-bordered">
       <thead>
         <tr>
