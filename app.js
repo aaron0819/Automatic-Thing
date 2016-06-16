@@ -136,7 +136,7 @@ app.get('/claim', function(req, res) {
   }
 
   res.render('claim', {
-    trip: trips[0];
+    trips[0]: trip;
   });
 });
 
