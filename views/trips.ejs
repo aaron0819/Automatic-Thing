@@ -8,14 +8,19 @@
 
   function runScenarios() {
       var table = document.getElementById("tripTable");
+      var matched = false;
       for (var i = 1, row; row = table.rows[i]; i++) {
           if (row.cells[6].innerHTML > 0 && row.cells[7].innerHTML > 0) {
             alert(row.id + " matched a rule");
             document.getElementById("submitClaim").style = "visibility:visible";
             document.getElementById("runScenarios").style = "visibility:hidden"
-          } else {
-            alert("nothing matched");
+            matched = true;
+            break;
           }
+      }
+
+      if (matched === false) {
+        alert("nothing matched");
       }
   }
 </script>
@@ -54,10 +59,10 @@
           <td><%= trip.start_address.name %></td>
           <td><%= trip.end_address.name %></td>
           <td><%= trip.distance_m %></td>
-          <td style="visibility:hidden"><%= trip.hard_brakes %></td>
-          <td style="visibility:hidden"><%= trip.ignition_off %></td>
-          <td style="visibility:hidden"><%= trip.duration_over_70_s %></td>
-          <td style="visibility:hidden"><%= trip.engine_temperature %></td>
+          <td><%= trip.hard_brakes %></td>
+          <td><%= trip.ignition_off %></td>
+          <td><%= trip.duration_over_70_s %></td>
+          <td><%= trip.engine_temperature %></td>
         </tr>
       <% }); %>
     </tbody>
