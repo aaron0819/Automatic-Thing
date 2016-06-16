@@ -29,45 +29,26 @@
 		<div class="row">
 			<div class="col-md-8 col-md-offset-2 well">
 				<form class="form-horizontal" action="person.html">
-
-					<div class="row">Personal Details</div>
-					<br />
-					<div class="input-group" style="padding-bottom:20px">
-						<span class="input-group-addon">
-							<i class="glyphicon glyphicon-pencil"></i>
-						</span>
-						<input type="text" class="form-control" name="fName" id="inputFirstName" placeholder="First Name" value="<%= user.first_name %>">
-					</div>
-					<div class="input-group" style="padding-bottom:20px">
-						<span class="input-group-addon">
-							<i class="glyphicon glyphicon-pencil"></i>
-						</span>
-						<input type="text" class="form-control" name="lName" id="inputLastName" placeholder="Last Name" value="<%= user.last_name %>">
-					</div>
-
 					<div class="row">Loss Details</div>
 					<br />
 					<div class="input-group" style="padding-bottom:20px">
 						<span class="input-group-addon">
 							<i class="glyphicon glyphicon-pencil"></i>
 						</span>
-						<input type="text" class="form-control" name="fName" id="inputFirstName" placeholder="Facts Of Loss">
+						<input type="text" class="form-control" name="factsOfLoss" id="factsOfLoss" placeholder="Briefly describe what happened">
 					</div>
 					<div class="input-group"  style="padding-bottom:20px">
 						<span class="input-group-addon">
 							<i class="glyphicon glyphicon-calendar"></i>
 						</span>
-						<input type="text" class="form-control" name="lName" id="inputLastName" placeholder="Date of Loss" value="<%= trips[3].vehicle_events[0].created_at %>">
+						<input type="text" class="form-control" name="dateOfLoss" id="dateOfLoss" placeholder="Date of Loss" value="<%= trips[3].vehicle_events[0].created_at %>">
 					</div>
 					<div class="input-group"  style="padding-bottom:20px">
 						<span class="input-group-addon">
 							<i class="glyphicon glyphicon-time"></i>
 						</span>
-						<input type="text" name="email" id="inputEmail"  class="form-control" placeholder="Time Of Loss" value="<%= trips[3].ended_at %>"/>
+						<input type="text" name="timeOfLoss" id="timeOfLoss"  class="form-control" placeholder="Time Of Loss" value="<%= trips[3].ended_at %>"/>
 					</div>
-
-
-
 
 					<div class="row">Loss Location Details</div>
 					<br/>
@@ -102,11 +83,9 @@
 						<input type="text" class="form-control" placeholder="Country" value="<%=trips[3].end_address.country %>">
 
 					</div>
-
 					<div class="form-group">
 						<div class="col-sm-3">
 							<button style="width:100%;" class="btn btn-info">Next</button>
-
 						</div>
 					</div>
 				</form>
