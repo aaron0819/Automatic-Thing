@@ -123,14 +123,7 @@ app.get('/claim', (req, res) => {
         } else{
           user = body;
 
-            for(int i = 0; i < vehicles.length; i++) {
-              if(i % 2 == 0) {
-                vehicles[i].igitionOn = 0;
-              } else {
-                vehicles[i].ignitionOff = 1;
-              }
 
-            }
 
           res.render('trips', {
 
