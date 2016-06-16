@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Dashboard</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script type="text/javascript" src="/assets/script/jquery.canvasjs.min.js"></script> 
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<style type="text/css">
+	.list-group{
+		width: 200px;
+	}
+    .bs-example{
+    	margin: 20px;
+    }
+</style>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script>
+$(function () {
+    $('#pieChart').highcharts({
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false,
+            type: 'pie',
+            margin: [0, 0, 0, 0],
+        spacingTop: 0,
+        spacingBottom: 0,
+        spacingLeft: 0,
+        spacingRight: 0
+            
+        },
+        title: {
+            text: ''
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                size: '80%',
+                cursor: 'pointer',
+                
+                dataLabels: {
+                    distance: -30,
+                    formatter: function() {
+                        return Math.round(this.percentage*100)/100 + ' %';
+                    }
+                }
+            }
+        },
+        series: [{
+            name: 'Types',
+            colorByPoint: true,
+            data: [{
+                name: 'Car2Claim',
+                y: 21.87
+            }, {
+                name: 'Connected to SF',
+                y: 30.20
+            }, {
+                name: 'ILR',
+                y: 47.93
+            }]
+        }]
+    });
+});    
+</script>
+</head>
+<body>    
+   
+<div class="container">
+     <nav class = "navbar navbar-default" role = "navigation">
+   
+   <div class = "navbar-header">
+      <a class = "navbar-brand" href = "#">Car2Claim Dashboard</a>
+   </div>
+   
+   <div>
+      <p class = "navbar-text navbar-right" style="margin-right:10%">
+         Signed In: Barrett
+         
+      </p>
+   </div>
+   
+</nav>
+    
+   
+
+    <div class="row">
+    
+    <div class="col-md-4" >
+        <div class = "well well-lg">KPI Metrics</div>
+        </div>
+                          
+            <div class="col-md-4">
+                <div class = "well well-lg">Our Platform vs. ILR</div>
+                </div>
+                        
+                <div class="col-md-4">                    
+                    <div class = "well well-lg">Automation</div>
+                     </div>  
+       
+                
+    
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+               
+   
+        <div class="list-group" style="width:100%">
+        <a href="#" class="list-group-item">
+            <span class="glyphicon glyphicon-paste"></span>Pre-Populated Claim<span class="badge">1</span>
+        </a>
+        <a href="#" class="list-group-item">
+            <span class="glyphicon glyphicon-file"></span>Completed Claim<span class="badge">0</span>
+        </a>
+        <a href="#" class="list-group-item">
+            <span class="glyphicon glyphicon-certificate"></span>Mild Accident<span class="badge">0</span>
+        </a>
+        <a href="#" class="list-group-item">
+            <span class="glyphicon glyphicon-certificate"></span>Severe Accident<span class="badge">1</span>
+        </a>
+            </div>
+        </div>
+        
+        <div class="col-md-4">
+         
+ 
+        <table class="table table-bordered">
+              <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Total Manual Inputs</th>
+                    </tr>
+            </thead>
+            <tbody>
+                    <tr>
+                        <td>ILR</td>
+                        <td>106 inputs</td>
+                    </tr>
+            </tbody>
+        </table>
+            
+            <table class="table table-bordered">
+              <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Automatically Generated</th>
+                    </tr>
+            </thead>
+            <tbody>
+                    <tr>
+                        <td>Claim2Car</td>
+                        <td>21 inputs</td>
+                    </tr>
+                    <tr>
+                        <td>Claim2Car with SF services</td>
+                        <td>56 inputs</td>
+                    </tr>
+            </tbody>
+        </table>
+
+        </div>
+        
+        <div class="col-md-4">
+          <div id="pieChart"></div>
+        </div>
+     
+    </div>
+    
+    </div>
+
+</body>
+</html>                                		
