@@ -3,11 +3,11 @@
 <html>
 <head>
 <link rel="stylesheet"
-	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script
-	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -27,34 +27,28 @@
 		<div class="col-md-8 col-md-offset-2 well">
         <form class="form-horizontal" action="vehicle.html">
   
-  <div class="row">Personal Details</div>
-  <br />
-   <div class="input-group" style="padding-bottom:20px">
-    <span class="input-group-addon">
-        <i class="glyphicon glyphicon-pencil"></i>
-    </span>
-     <input type="text" class="form-control" name="fName" id="inputFirstName" placeholder="First Name">
-
-</div>
- 
-    <div class="input-group"  style="padding-bottom:20px">
-    <span class="input-group-addon">
-        <i class="glyphicon glyphicon-calendar"></i>
-    </span>
-     <input type="text" class="form-control" name="lName" id="inputLastName" placeholder="Last Name">
-
-
-</div>
-
- 
-    <div class="input-group"  style="padding-bottom:20px">
-    <span class="input-group-addon">
-        <i class="glyphicon glyphicon-envelope"></i>
-    </span>
-     <input type="text" class="form-control" name="lName" id="inputLastName" placeholder="Email">
-
-
-</div>
+		<div class="row">Personal Details</div>
+			<br />
+			<div class="input-group" style="padding-bottom:20px">
+				<span class="input-group-addon">
+					<i class="glyphicon glyphicon-pencil"></i>
+				</span>
+				<input type="text" class="form-control" name="fName" id="inputFirstName" placeholder="First Name" value="<%= user.first_name %>">
+			</div>
+			<div class="input-group" style="padding-bottom:20px">
+				<span class="input-group-addon">
+					<i class="glyphicon glyphicon-pencil"></i>
+				</span>
+				<input type="text" class="form-control" name="lName" id="inputLastName" placeholder="Last Name" value="<%= user.last_name %>">
+			</div>
+			    <div class="input-group"  style="padding-bottom:20px">
+			    <span class="input-group-addon">
+			        <i class="glyphicon glyphicon-envelope"></i>
+			    </span>
+			     <input type="text" class="form-control" name="email" id="inputEmail" placeholder="Email" value="<%= user.email %>">
+			
+			
+			</div>
 
 <div class="row">Personal Address</div>
 <br/>
