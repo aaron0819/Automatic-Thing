@@ -268,7 +268,7 @@ app.get('/claims4', function(req, res) {
 app.get('/dashboard', function(req, res) {
   console.log("/dashboard");
 
-  res.render('dashboard', {
+  res.render('dashboard-new', {
   });
 });
 
