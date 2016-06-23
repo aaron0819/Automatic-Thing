@@ -121,7 +121,7 @@ app.get('/trips', function(req, res) {
 
 // Main page of app with link to log in
 app.get('/', (req, res) => {
-  res.send('<img src="/connectedcar.jpg" alt="Smiley face" height="42" width="42"><a href="/auth">Log in with Automatic</a>');
+  res.send('<img src="connectedcar.jpg" alt="Smiley face" ><a href="/auth">Log in with Automatic</a>');
 });
 
 app.get('/claims', function(req, res) {
