@@ -121,31 +121,7 @@ app.get('/trips', function(req, res) {
 
 // Main page of app with link to log in
 app.get('/', (req, res) => {
-  res.send('<html>
-    <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script type="text/javascript" src="/assets/script/jquery.canvasjs.min.js"></script> 
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-        </head>
-    <body>
-        <div class="container">
-            <div class="row">
-                  <div class="col-md-8">
-                                       <br/>
-                        <img style="border-radius: 5px;" src="http://i.imgur.com/3U6rueQ.jpg" alt="Smiley face">
-                        <br/>
-                        </div>
-                         <div class="col-md-2 col-md-offset-1">
-                               
-                                <a style="margin-top:300px;" class="btn btn-success" href="/auth">Log in with Automatic</a>
-                            </div>
-            
-            </div>
-            </div>
-      </body>
-</html>');
+  res.send('<html> <head><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css"><script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script><script type="text/javascript" src="/assets/script/jquery.canvasjs.min.js"></script> <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> </head> <body> <div class="container"> <div class="row"> <div class="col-md-8"> <br/> <img style="border-radius: 5px;" src="http://i.imgur.com/3U6rueQ.jpg" alt="Smiley face"> <br/> </div> <div class="col-md-2 col-md-offset-1"> <a style="margin-top:300px;" class="btn btn-success" href="/auth">Log in with Automatic</a> </div> </div> </div> </body></html>');
 });
 
 app.get('/claims', function(req, res) {
