@@ -273,6 +273,15 @@ app.get('/dashboard', function(req, res) {
   });
 });
 
+app.get('/techdash', function(req, res) {
+  console.log("/techdash");
+
+  res.render('techdash', {
+  });
+});
+
+
+
 // Start server
 app.listen(port);
 
